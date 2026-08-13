@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>La Vida Que Quiero</title>
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
 html{
@@ -20,980 +26,2541 @@ html{
 }
 
 body{
+    font-family:Arial,Helvetica,sans-serif;
     background:#080808;
     color:#fff;
-    min-height:100vh;
+    line-height:1.5;
 }
 
-/* HEADER */
+button{
+    font-family:inherit;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+
+    --gold:#d4af37;
+
+    --gold-light:#f0cf63;
+
+    --dark:#080808;
+
+    --card:#121212;
+
+    --card-light:#181818;
+
+    --border:#292929;
+
+    --text:#ffffff;
+
+    --muted:#8e8e8e;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-    position:sticky;
+
+    position:fixed;
+
     top:0;
+
+    left:0;
+
+    width:100%;
+
     z-index:100;
-    padding:20px 7%;
+
+    padding:18px 6%;
+
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
-    background:rgba(8,8,8,.92);
-    backdrop-filter:blur(10px);
+
+    justify-content:space-between;
+
+    background:rgba(8,8,8,.9);
+
+    backdrop-filter:blur(15px);
+
     border-bottom:1px solid #222;
+
 }
 
 .logo{
-    font-size:22px;
-    font-weight:800;
+
+    font-size:20px;
+
+    font-weight:900;
+
     letter-spacing:1px;
+
 }
 
 .logo span{
-    color:#d4af37;
+
+    color:var(--gold);
+
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:85vh;
+
+    min-height:100vh;
+
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+
     align-items:center;
+
+    justify-content:center;
+
     text-align:center;
-    padding:70px 20px;
+
+    padding:120px 20px 80px;
+
     background:
-    radial-gradient(circle at center,#1b1608 0%,#080808 55%);
+
+    radial-gradient(
+
+        circle at 50% 40%,
+
+        #211b0b 0%,
+
+        #080808 55%
+
+    );
+
+}
+
+.hero-content{
+
+    max-width:950px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border:1px solid #4d411d;
+
+    border-radius:30px;
+
+    color:var(--gold-light);
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+    background:#151208;
+
 }
 
 .hero h1{
-    font-size:clamp(45px,8vw,90px);
-    line-height:.98;
-    max-width:1000px;
+
+    font-size:clamp(48px,8vw,95px);
+
+    line-height:.95;
+
     margin-bottom:30px;
+
 }
 
 .hero h1 span{
-    color:#d4af37;
+
+    color:var(--gold);
+
 }
 
 .hero p{
-    max-width:700px;
-    color:#aaa;
+
+    color:var(--muted);
+
     font-size:20px;
-    line-height:1.6;
-    margin-bottom:40px;
+
+    max-width:700px;
+
+    margin:0 auto 40px;
+
 }
 
-.btn{
-    display:inline-block;
+.primary-btn{
+
     border:none;
-    padding:16px 35px;
-    background:#d4af37;
+
+    padding:17px 35px;
+
+    background:var(--gold);
+
     color:#000;
-    text-decoration:none;
-    font-weight:800;
+
     border-radius:10px;
+
+    font-weight:900;
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
-.btn:hover{
+.primary-btn:hover{
+
     transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(212,175,55,.2);
+
+    background:var(--gold-light);
+
+    box-shadow:
+
+    0 15px 35px rgba(212,175,55,.2);
+
 }
 
-/* AREAS */
 
-.areas{
-    padding:90px 7%;
+/* =========================
+   SECTION
+========================= */
+
+section.content{
+
+    padding:100px 6%;
+
 }
 
 .section-title{
-    text-align:center;
+
     font-size:42px;
-    margin-bottom:15px;
+
+    text-align:center;
+
+    margin-bottom:12px;
+
 }
 
-.section-subtitle{
+.section-description{
+
     text-align:center;
-    color:#888;
+
+    color:var(--muted);
+
     max-width:650px;
-    margin:0 auto 55px;
-    line-height:1.6;
+
+    margin:0 auto 50px;
+
 }
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:18px;
+
+    margin-bottom:40px;
+
+}
+
+.stat{
+
+    background:linear-gradient(
+
+        145deg,
+
+        #181818,
+
+        #101010
+
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:25px;
+
+}
+
+.stat-icon{
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.stat-value{
+
+    font-size:32px;
+
+    font-weight:900;
+
+    color:var(--gold);
+
+}
+
+.stat-label{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+/* =========================
+   AREAS
+========================= */
 
 .grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(230px,1fr));
+
     gap:20px;
+
 }
 
 .card{
-    background:linear-gradient(145deg,#171717,#101010);
-    border:1px solid #292929;
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        #181818,
+
+        #101010
+
+    );
+
+    border:1px solid var(--border);
+
     border-radius:18px;
+
     padding:30px;
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .card:hover{
+
     transform:translateY(-7px);
-    border-color:#d4af37;
-    box-shadow:0 15px 40px rgba(0,0,0,.5);
+
+    border-color:var(--gold);
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.5);
+
 }
 
-.icon{
-    font-size:40px;
+.card-icon{
+
+    font-size:42px;
+
     margin-bottom:18px;
+
 }
 
 .card h3{
+
     font-size:22px;
-    margin-bottom:10px;
+
+    margin-bottom:8px;
+
 }
 
 .card p{
-    color:#999;
-    line-height:1.6;
+
+    color:var(--muted);
+
 }
 
-/* MODAL */
+
+/* =========================
+   BOOKS
+========================= */
+
+.books{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:20px;
+
+}
+
+.book{
+
+    background:#131313;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.3s;
+
+}
+
+.book:hover{
+
+    border-color:var(--gold);
+
+    transform:translateY(-5px);
+
+}
+
+.book-cover{
+
+    height:180px;
+
+    border-radius:10px;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #252525,
+
+        #101010
+
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+.book-cover strong{
+
+    font-size:20px;
+
+}
+
+.book-category{
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+
+}
+
+.book h3{
+
+    font-size:20px;
+
+    margin-bottom:6px;
+
+}
+
+.book-author{
+
+    color:#777;
+
+    margin-bottom:15px;
+
+}
+
+.book button{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #444;
+
+    background:#202020;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.book button:hover{
+
+    border-color:var(--gold);
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
 
 .modal{
-    display:none;
+
     position:fixed;
+
     inset:0;
+
     z-index:1000;
-    background:rgba(0,0,0,.82);
-    backdrop-filter:blur(8px);
+
+    background:rgba(0,0,0,.85);
+
+    backdrop-filter:blur(10px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
     padding:20px;
-    overflow-y:auto;
+
 }
 
 .modal.active{
+
     display:flex;
-    justify-content:center;
-    align-items:center;
+
 }
 
 .modal-box{
+
     width:100%;
-    max-width:650px;
+
+    max-width:700px;
+
     max-height:90vh;
+
     overflow-y:auto;
+
     background:#111;
+
     border:1px solid #333;
+
     border-radius:22px;
-    padding:30px;
+
+    padding:32px;
+
     position:relative;
-    box-shadow:0 30px 80px rgba(0,0,0,.8);
+
 }
 
 .close{
+
     position:absolute;
+
     top:15px;
+
     right:20px;
+
     background:none;
+
     border:none;
-    color:#aaa;
+
+    color:#777;
+
     font-size:30px;
+
     cursor:pointer;
+
 }
 
 .close:hover{
+
     color:#fff;
+
 }
 
 .modal-title{
+
     font-size:32px;
+
     margin-bottom:10px;
+
 }
 
 .modal-description{
+
     color:#999;
-    line-height:1.6;
+
     margin-bottom:25px;
+
 }
 
-/* PROGRESS */
+
+/* =========================
+   ONBOARDING
+========================= */
+
+.step{
+
+    display:none;
+
+}
+
+.step.active{
+
+    display:block;
+
+}
+
+.choice-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:12px;
+
+    margin:25px 0;
+
+}
+
+.choice{
+
+    padding:18px;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    background:#181818;
+
+    color:white;
+
+    cursor:pointer;
+
+    text-align:left;
+
+}
+
+.choice:hover{
+
+    border-color:var(--gold);
+
+}
+
+.choice.selected{
+
+    border-color:var(--gold);
+
+    background:#211c0d;
+
+}
+
+.next-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:var(--gold);
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   CHALLENGE
+========================= */
 
 .progress-info{
+
     display:flex;
+
     justify-content:space-between;
-    margin-bottom:10px;
-    font-weight:bold;
+
+    margin-bottom:8px;
+
 }
 
 .progress-bar{
-    width:100%;
+
     height:12px;
+
+    width:100%;
+
     background:#252525;
+
     border-radius:20px;
+
     overflow:hidden;
-    margin-bottom:30px;
+
+    margin-bottom:25px;
+
 }
 
 .progress-fill{
+
     height:100%;
+
     width:0%;
-    background:#d4af37;
+
+    background:var(--gold);
+
     transition:.5s;
+
 }
 
-/* DAYS */
-
 .day{
+
     background:#181818;
+
     border:1px solid #292929;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:15px;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:12px;
+
     display:flex;
+
     justify-content:space-between;
-    align-items:center;
+
     gap:15px;
+
+    align-items:center;
+
 }
 
 .day.completed{
-    border-color:#d4af37;
+
+    border-color:var(--gold);
+
     background:#19170f;
+
 }
 
 .day-number{
-    color:#d4af37;
+
+    color:var(--gold);
+
+    font-size:13px;
+
     font-weight:bold;
-    margin-bottom:5px;
+
 }
 
 .day h4{
-    margin-bottom:5px;
+
+    margin:4px 0;
+
 }
 
 .day p{
-    color:#888;
-    font-size:14px;
-}
 
-.complete-btn{
-    border:1px solid #444;
-    background:#222;
-    color:#fff;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    white-space:nowrap;
-}
-
-.complete-btn:hover{
-    border-color:#d4af37;
-}
-
-.day.completed .complete-btn{
-    background:#d4af37;
-    color:#000;
-    border-color:#d4af37;
-}
-
-/* RESET */
-
-.reset{
-    margin-top:20px;
-    background:transparent;
     color:#777;
-    border:1px solid #333;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
+
+    font-size:14px;
+
 }
 
-.reset:hover{
+.complete{
+
+    padding:10px 14px;
+
+    border:1px solid #444;
+
+    background:#222;
+
     color:#fff;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
 }
 
-/* SUCCESS */
+.day.completed .complete{
+
+    background:var(--gold);
+
+    color:#000;
+
+}
 
 .success{
+
     display:none;
+
+    padding:20px;
+
     text-align:center;
-    background:#19170f;
-    border:1px solid #d4af37;
-    border-radius:15px;
-    padding:25px;
+
+    border:1px solid var(--gold);
+
+    border-radius:14px;
+
     margin-top:20px;
+
 }
 
 .success.show{
+
     display:block;
+
 }
 
 .success h3{
-    color:#d4af37;
-    font-size:25px;
-    margin-bottom:10px;
+
+    color:var(--gold);
+
+    margin-bottom:8px;
+
 }
 
-/* FOOTER */
+
+/* =========================
+   BOOK MODAL
+========================= */
+
+.book-info{
+
+    color:#aaa;
+
+    line-height:1.7;
+
+}
+
+.book-info strong{
+
+    color:#fff;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    text-align:center;
+
     padding:50px 20px;
+
+    text-align:center;
+
     border-top:1px solid #222;
+
     color:#666;
+
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
-    header{
-        padding:18px 5%;
-    }
+    .hero h1{
 
-    .logo{
-        font-size:17px;
-    }
+        font-size:50px;
 
-    .hero{
-        min-height:80vh;
     }
 
     .hero p{
+
         font-size:17px;
+
     }
 
-    .areas{
-        padding:70px 5%;
-    }
+    .choice-grid{
 
-    .section-title{
-        font-size:34px;
-    }
+        grid-template-columns:1fr;
 
-    .modal-box{
-        padding:22px;
-    }
-
-    .modal-title{
-        font-size:27px;
     }
 
     .day{
-        align-items:flex-start;
+
         flex-direction:column;
+
+        align-items:flex-start;
+
     }
 
-    .complete-btn{
+    .complete{
+
         width:100%;
+
+    }
+
+    .modal-box{
+
+        padding:23px;
+
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
 
-    <div class="logo">
-        LA VIDA <span>QUE QUIERO</span>
-    </div>
+<div class="logo">
+
+LA VIDA <span>QUE QUIERO</span>
+
+</div>
 
 </header>
+
 
 
 <!-- HERO -->
 
 <section class="hero">
 
-    <h1>
-        Construí la <span>vida que querés.</span>
-    </h1>
+<div class="hero-content">
 
-    <p>
-        Una plataforma para mejorar tu cuerpo, mente,
-        disciplina, relaciones, propósito y finanzas.
-        Un paso cada día.
-    </p>
+<div class="badge">
 
-    <a href="#areas" class="btn">
-        EMPEZAR AHORA
-    </a>
+🔥 CONSTRUÍ TU MEJOR VERSIÓN
+
+</div>
+
+<h1>
+
+Construí la
+
+<span>vida que querés.</span>
+
+</h1>
+
+<p>
+
+Una plataforma para ayudarte a mejorar
+
+tu cuerpo, mente, disciplina, dinero,
+
+relaciones, educación y propósito.
+
+</p>
+
+<button
+
+class="primary-btn"
+
+onclick="abrirOnboarding()">
+
+EMPEZAR MI TRANSFORMACIÓN
+
+</button>
+
+</div>
 
 </section>
+
+
+
+<!-- DASHBOARD -->
+
+<section class="content">
+
+<div class="dashboard">
+
+<h2 class="section-title">
+
+Tu progreso
+
+</h2>
+
+<p class="section-description">
+
+Cada pequeño avance cuenta.
+
+Construí tu vida un día a la vez.
+
+</p>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-icon">
+
+🔥
+
+</div>
+
+<div
+
+class="stat-value"
+
+id="statDias">
+
+0
+
+</div>
+
+<div class="stat-label">
+
+Días completados
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+
+⭐
+
+</div>
+
+<div
+
+class="stat-value"
+
+id="statPuntos">
+
+0
+
+</div>
+
+<div class="stat-label">
+
+Puntos
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+
+🏆
+
+</div>
+
+<div
+
+class="stat-value"
+
+id="statNivel">
+
+1
+
+</div>
+
+<div class="stat-label">
+
+Nivel
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
 
 
 <!-- AREAS -->
 
-<section class="areas" id="areas">
+<section class="content" id="areas">
 
-    <h2 class="section-title">
-        Construí tu mejor versión
-    </h2>
+<h2 class="section-title">
 
-    <p class="section-subtitle">
-        Elegí un área y empezá a trabajar en ella.
-        Tu transformación comienza con una decisión.
-    </p>
+Áreas de crecimiento
 
+</h2>
 
-    <div class="grid">
+<p class="section-description">
 
+No se trata de ser perfecto.
 
-        <!-- CUERPO -->
+Se trata de ser mejor que ayer.
 
-        <div class="card" onclick="mostrarMensaje('Cuerpo')">
-
-            <div class="icon">💪</div>
-
-            <h3>Cuerpo</h3>
-
-            <p>
-                Entrenamiento, alimentación y hábitos
-                para construir un cuerpo fuerte.
-            </p>
-
-        </div>
+</p>
 
 
-        <!-- MENTALIDAD -->
-
-        <div class="card" onclick="mostrarMensaje('Mentalidad')">
-
-            <div class="icon">🧠</div>
-
-            <h3>Mentalidad</h3>
-
-            <p>
-                Fortalecé tu mente, confianza y capacidad
-                para enfrentar desafíos.
-            </p>
-
-        </div>
+<div class="grid">
 
 
-        <!-- FINANZAS -->
+<div class="card"
 
-        <div class="card" onclick="mostrarMensaje('Finanzas')">
+onclick="mostrarArea('Cuerpo')">
 
-            <div class="icon">💰</div>
+<div class="card-icon">💪</div>
 
-            <h3>Finanzas</h3>
+<h3>Cuerpo</h3>
 
-            <p>
-                Aprendé a administrar, ahorrar,
-                invertir y construir patrimonio.
-            </p>
+<p>
 
-        </div>
+Entrenamiento, alimentación,
 
+energía y hábitos saludables.
 
-        <!-- NEGOCIOS -->
+</p>
 
-        <div class="card" onclick="mostrarMensaje('Negocios')">
-
-            <div class="icon">💼</div>
-
-            <h3>Negocios</h3>
-
-            <p>
-                Desarrollá habilidades para generar
-                ingresos y crear oportunidades.
-            </p>
-
-        </div>
+</div>
 
 
-        <!-- RELACIONES -->
+<div class="card"
 
-        <div class="card" onclick="mostrarMensaje('Relaciones')">
+onclick="mostrarArea('Mentalidad')">
 
-            <div class="icon">❤️</div>
+<div class="card-icon">🧠</div>
 
-            <h3>Relaciones</h3>
+<h3>Mentalidad</h3>
 
-            <p>
-                Mejorá tus relaciones, comunicación
-                y vida social.
-            </p>
+<p>
 
-        </div>
+Fortalecé tu mente,
 
+confianza y resiliencia.
 
-        <!-- PROPOSITO -->
+</p>
 
-        <div class="card" onclick="mostrarMensaje('Propósito')">
-
-            <div class="icon">🎯</div>
-
-            <h3>Propósito</h3>
-
-            <p>
-                Definí hacia dónde querés ir
-                y construí un camino con sentido.
-            </p>
-
-        </div>
+</div>
 
 
-        <!-- DISCIPLINA -->
+<div class="card"
 
-        <div class="card"
-             onclick="abrirDisciplina()">
+onclick="mostrarArea('Finanzas')">
 
-            <div class="icon">🔥</div>
+<div class="card-icon">💰</div>
 
-            <h3>Disciplina</h3>
+<h3>Finanzas</h3>
 
-            <p>
-                Convertí tus objetivos en acciones
-                y desarrollá constancia.
-            </p>
+<p>
 
-        </div>
+Aprendé a administrar,
 
+ahorrar e invertir.
 
-        <!-- MISIONES -->
+</p>
 
-        <div class="card" onclick="mostrarMensaje('Misiones')">
-
-            <div class="icon">🚀</div>
-
-            <h3>Misiones</h3>
-
-            <p>
-                Pequeños desafíos diarios para avanzar
-                un paso cada día.
-            </p>
-
-        </div>
+</div>
 
 
-    </div>
+<div class="card"
+
+onclick="mostrarArea('Negocios')">
+
+<div class="card-icon">💼</div>
+
+<h3>Negocios</h3>
+
+<p>
+
+Aprendé habilidades para
+
+generar nuevas oportunidades.
+
+</p>
+
+</div>
+
+
+<div class="card"
+
+onclick="mostrarArea('Relaciones')">
+
+<div class="card-icon">❤️</div>
+
+<h3>Relaciones</h3>
+
+<p>
+
+Comunicación, vínculos
+
+y vida social.
+
+</p>
+
+</div>
+
+
+<div class="card"
+
+onclick="mostrarArea('Propósito')">
+
+<div class="card-icon">🎯</div>
+
+<h3>Propósito</h3>
+
+<p>
+
+Descubrí qué querés construir
+
+con tu vida.
+
+</p>
+
+</div>
+
+
+<div class="card"
+
+onclick="abrirDisciplina()">
+
+<div class="card-icon">🔥</div>
+
+<h3>Disciplina</h3>
+
+<p>
+
+Construí constancia y
+
+aprendé a cumplir.
+
+</p>
+
+</div>
+
+
+<div class="card"
+
+onclick="mostrarArea('Misiones')">
+
+<div class="card-icon">🚀</div>
+
+<h3>Misiones</h3>
+
+<p>
+
+Pequeños desafíos para
+
+avanzar todos los días.
+
+</p>
+
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- MODAL DISCIPLINA -->
 
-<div class="modal" id="disciplinaModal">
+<!-- BIBLIOTECA -->
 
-    <div class="modal-box">
+<section class="content">
 
-        <button class="close"
-                onclick="cerrarDisciplina()">
-            ×
-        </button>
+<h2 class="section-title">
 
+📚 Biblioteca
 
-        <h2 class="modal-title">
-            🔥 Desafío de Disciplina
-        </h2>
+</h2>
 
-        <p class="modal-description">
-            Durante 7 días vas a completar una misión
-            diaria. No busques perfección. Buscá constancia.
-        </p>
+<p class="section-description">
 
+Libros seleccionados para ayudarte
 
-        <div class="progress-info">
+a crecer en las áreas que importan.
 
-            <span>Tu progreso</span>
+</p>
 
-            <span id="progressText">
-                0 / 7
-            </span>
 
-        </div>
+<div class="books">
 
 
-        <div class="progress-bar">
+<!-- HABITOS -->
 
-            <div class="progress-fill"
-                 id="progressFill">
-            </div>
+<div class="book">
 
-        </div>
+<div class="book-cover">
 
+<strong>
 
-        <div id="daysContainer">
+Hábitos Atómicos
 
-
-            <!-- DÍA 1 -->
-
-            <div class="day" id="day1">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 1
-                    </div>
-
-                    <h4>
-                        Ordená tu entorno
-                    </h4>
-
-                    <p>
-                        Tendé tu cama y ordená tu habitación
-                        apenas comiences el día.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(1)">
-                    Completar
-                </button>
-
-            </div>
-
-
-            <!-- DÍA 2 -->
-
-            <div class="day" id="day2">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 2
-                    </div>
-
-                    <h4>
-                        Cumplí una promesa
-                    </h4>
-
-                    <p>
-                        Elegí una tarea pendiente y terminala
-                        antes de distraerte.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(2)">
-                    Completar
-                </button>
-
-            </div>
-
-
-            <!-- DÍA 3 -->
-
-            <div class="day" id="day3">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 3
-                    </div>
-
-                    <h4>
-                        30 minutos sin distracciones
-                    </h4>
-
-                    <p>
-                        Trabajá durante 30 minutos
-                        sin redes sociales ni distracciones.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(3)">
-                    Completar
-                </button>
-
-            </div>
-
-
-            <!-- DÍA 4 -->
-
-            <div class="day" id="day4">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 4
-                    </div>
-
-                    <h4>
-                        Hacé lo difícil primero
-                    </h4>
-
-                    <p>
-                        Completá una tarea que venís evitando.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(4)">
-                    Completar
-                </button>
-
-            </div>
-
-
-            <!-- DÍA 5 -->
-
-            <div class="day" id="day5">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 5
-                    </div>
-
-                    <h4>
-                        Controlá tus impulsos
-                    </h4>
-
-                    <p>
-                        Evitá durante el día una distracción
-                        que normalmente te hace perder tiempo.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(5)">
-                    Completar
-                </button>
-
-            </div>
-
-
-            <!-- DÍA 6 -->
-
-            <div class="day" id="day6">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 6
-                    </div>
-
-                    <h4>
-                        Cumplí aunque no tengas ganas
-                    </h4>
-
-                    <p>
-                        Elegí una tarea importante y hacela
-                        aunque no tengas motivación.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(6)">
-                    Completar
-                </button>
-
-            </div>
-
-
-            <!-- DÍA 7 -->
-
-            <div class="day" id="day7">
-
-                <div>
-
-                    <div class="day-number">
-                        DÍA 7
-                    </div>
-
-                    <h4>
-                        Demostrate que podés
-                    </h4>
-
-                    <p>
-                        Completá una acción que represente
-                        la persona que querés convertirte.
-                    </p>
-
-                </div>
-
-                <button class="complete-btn"
-                        onclick="completarDia(7)">
-                    Completar
-                </button>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="success" id="successBox">
-
-            <h3>
-                🏆 ¡DESAFÍO COMPLETADO!
-            </h3>
-
-            <p>
-                Completaste los 7 días.
-                Acabás de demostrar que podés cumplir
-                lo que te proponés.
-            </p>
-
-        </div>
-
-
-        <button class="reset"
-                onclick="reiniciarDesafio()">
-            Reiniciar desafío
-        </button>
-
-
-    </div>
+</strong>
 
 </div>
+
+<div class="book-category">
+
+Hábitos · Disciplina
+
+</div>
+
+<h3>
+
+Hábitos Atómicos
+
+</h3>
+
+<div class="book-author">
+
+James Clear
+
+</div>
+
+<button
+
+onclick="abrirLibro('habitos')">
+
+Ver recomendación
+
+</button>
+
+</div>
+
+
+<!-- PSICOLOGIA -->
+
+<div class="book">
+
+<div class="book-cover">
+
+<strong>
+
+La Psicología del Dinero
+
+</strong>
+
+</div>
+
+<div class="book-category">
+
+Finanzas
+
+</div>
+
+<h3>
+
+La Psicología del Dinero
+
+</h3>
+
+<div class="book-author">
+
+Morgan Housel
+
+</div>
+
+<button
+
+onclick="abrirLibro('dinero')">
+
+Ver recomendación
+
+</button>
+
+</div>
+
+
+<!-- BABILONIA -->
+
+<div class="book">
+
+<div class="book-cover">
+
+<strong>
+
+El Hombre Más Rico
+
+de Babilonia
+
+</strong>
+
+</div>
+
+<div class="book-category">
+
+Finanzas
+
+</div>
+
+<h3>
+
+El Hombre Más Rico de Babilonia
+
+</h3>
+
+<div class="book-author">
+
+George S. Clason
+
+</div>
+
+<button
+
+onclick="abrirLibro('babilonia')">
+
+Ver recomendación
+
+</button>
+
+</div>
+
+
+<!-- PIENSE -->
+
+<div class="book">
+
+<div class="book-cover">
+
+<strong>
+
+Piense y Hágase Rico
+
+</strong>
+
+</div>
+
+<div class="book-category">
+
+Mentalidad
+
+</div>
+
+<h3>
+
+Piense y Hágase Rico
+
+</h3>
+
+<div class="book-author">
+
+Napoleon Hill
+
+</div>
+
+<button
+
+onclick="abrirLibro('piense')">
+
+Ver recomendación
+
+</button>
+
+</div>
+
+
+<!-- 7 HABITOS -->
+
+<div class="book">
+
+<div class="book-cover">
+
+<strong>
+
+Los 7 Hábitos
+
+</strong>
+
+</div>
+
+<div class="book-category">
+
+Desarrollo personal
+
+</div>
+
+<h3>
+
+Los 7 hábitos de la gente altamente efectiva
+
+</h3>
+
+<div class="book-author">
+
+Stephen R. Covey
+
+</div>
+
+<button
+
+onclick="abrirLibro('7habitos')">
+
+Ver recomendación
+
+</button>
+
+</div>
+
+
+<!-- CARNEGIE -->
+
+<div class="book">
+
+<div class="book-cover">
+
+<strong>
+
+Cómo ganar amigos
+
+</strong>
+
+</div>
+
+<div class="book-category">
+
+Relaciones
+
+</div>
+
+<h3>
+
+Cómo ganar amigos e influir sobre las personas
+
+</h3>
+
+<div class="book-author">
+
+Dale Carnegie
+
+</div>
+
+<button
+
+onclick="abrirLibro('carnegie')">
+
+Ver recomendación
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ONBOARDING MODAL -->
+
+<div class="modal"
+
+id="onboardingModal">
+
+<div class="modal-box">
+
+<button class="close"
+
+onclick="cerrarModal('onboardingModal')">
+
+×
+
+</button>
+
+
+<!-- PASO 1 -->
+
+<div class="step active"
+
+id="step1">
+
+<h2 class="modal-title">
+
+🚀 Empezá tu transformación
+
+</h2>
+
+<p class="modal-description">
+
+Primero elegí el área que más querés
+
+mejorar.
+
+</p>
+
+
+<div class="choice-grid">
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Cuerpo')">
+
+💪 Cuerpo
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Mentalidad')">
+
+🧠 Mentalidad
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Finanzas')">
+
+💰 Finanzas
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Negocios')">
+
+💼 Negocios
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Relaciones')">
+
+❤️ Relaciones
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Propósito')">
+
+🎯 Propósito
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarObjetivo(this,'Disciplina')">
+
+🔥 Disciplina
+
+</button>
+
+
+</div>
+
+
+<button
+
+class="next-btn"
+
+onclick="siguientePaso(2)">
+
+CONTINUAR
+
+</button>
+
+</div>
+
+
+
+<!-- PASO 2 -->
+
+<div class="step"
+
+id="step2">
+
+<h2 class="modal-title">
+
+⏱️ ¿Cuánto tiempo tenés?
+
+</h2>
+
+<p class="modal-description">
+
+No necesitás horas.
+
+Necesitás constancia.
+
+</p>
+
+
+<div class="choice-grid">
+
+
+<button class="choice"
+
+onclick="seleccionarTiempo(this,'10 minutos')">
+
+⚡ 10 minutos
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarTiempo(this,'30 minutos')">
+
+🔥 30 minutos
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarTiempo(this,'1 hora')">
+
+💪 1 hora
+
+</button>
+
+
+<button class="choice"
+
+onclick="seleccionarTiempo(this,'Más de 1 hora')">
+
+🚀 Más de 1 hora
+
+</button>
+
+
+</div>
+
+
+<button
+
+class="next-btn"
+
+onclick="siguientePaso(3)">
+
+VER MI RECOMENDACIÓN
+
+</button>
+
+</div>
+
+
+
+<!-- PASO 3 -->
+
+<div class="step"
+
+id="step3">
+
+<h2 class="modal-title">
+
+🎯 Tu primer desafío
+
+</h2>
+
+<p class="modal-description"
+
+id="recommendation">
+
+</p>
+
+
+<div style="
+
+background:#19170f;
+
+border:1px solid #4d411d;
+
+padding:25px;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+">
+
+<h3 style="color:#d4af37;margin-bottom:10px;">
+
+🔥 7 días de disciplina
+
+</h3>
+
+<p style="color:#aaa;">
+
+La mejor forma de comenzar es
+
+demostrarte que podés cumplir
+
+pequeñas acciones todos los días.
+
+</p>
+
+</div>
+
+
+<button
+
+class="next-btn"
+
+onclick="comenzarDesafio()">
+
+COMENZAR DESAFÍO
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- DISCIPLINA MODAL -->
+
+<div class="modal"
+
+id="disciplinaModal">
+
+<div class="modal-box">
+
+<button class="close"
+
+onclick="cerrarModal('disciplinaModal')">
+
+×
+
+</button>
+
+
+<h2 class="modal-title">
+
+🔥 7 Días de Disciplina
+
+</h2>
+
+<p class="modal-description">
+
+No busques motivación.
+
+Construí disciplina.
+
+</p>
+
+
+<div class="progress-info">
+
+<span>
+
+Progreso
+
+</span>
+
+<span id="progressText">
+
+0 / 7
+
+</span>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div class="progress-fill"
+
+id="progressFill">
+
+</div>
+
+</div>
+
+
+<div id="days">
+
+
+</div>
+
+
+<div class="success"
+
+id="successBox">
+
+<h3>
+
+🏆 ¡DESAFÍO COMPLETADO!
+
+</h3>
+
+<p>
+
+Completaste los 7 días.
+
+Acabás de demostrar que podés
+
+cumplir lo que te proponés.
+
+</p>
+
+</div>
+
+
+<button
+
+style="margin-top:20px"
+
+class="complete"
+
+onclick="reiniciarDesafio()">
+
+Reiniciar desafío
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- BOOK MODAL -->
+
+<div class="modal"
+
+id="bookModal">
+
+<div class="modal-box">
+
+<button class="close"
+
+onclick="cerrarModal('bookModal')">
+
+×
+
+</button>
+
+
+<h2 class="modal-title"
+
+id="bookTitle">
+
+</h2>
+
+
+<div class="book-info"
+
+id="bookInfo">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- SIMPLE AREA MODAL -->
+
+<div class="modal"
+
+id="areaModal">
+
+<div class="modal-box">
+
+<button class="close"
+
+onclick="cerrarModal('areaModal')">
+
+×
+
+</button>
+
+
+<h2 class="modal-title"
+
+id="areaTitle">
+
+</h2>
+
+
+<p class="modal-description"
+
+id="areaDescription">
+
+</p>
+
+
+<div style="
+
+background:#181818;
+
+border:1px solid #292929;
+
+padding:25px;
+
+border-radius:15px;
+
+">
+
+<h3 style="margin-bottom:10px">
+
+🚀 Próximamente
+
+</h3>
+
+<p style="color:#888">
+
+Estamos construyendo los desafíos,
+
+herramientas y contenidos de esta sección.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 
 <!-- FOOTER -->
 
 <footer>
 
-    © 2026 La Vida Que Quiero
+<strong>
 
-    <br><br>
+LA VIDA QUE QUIERO
 
-    Construí un día a la vez.
+</strong>
+
+<br><br>
+
+Construí un día a la vez.
+
+<br><br>
+
+© 2026
 
 </footer>
+
 
 
 <script>
 
 /* =========================
-   DISCIPLINA
+   DATOS
 ========================= */
 
+let objetivo =
+localStorage.getItem("objetivo") || "";
+
+let tiempo =
+localStorage.getItem("tiempo") || "";
+
 let progreso =
-    JSON.parse(localStorage.getItem("disciplinaProgreso")) || [];
+JSON.parse(
+localStorage.getItem("disciplina")
+) || [];
+
+
+/* =========================
+   ONBOARDING
+========================= */
+
+function abrirOnboarding(){
+
+    document
+    .getElementById("onboardingModal")
+    .classList.add("active");
+
+}
+
+
+function seleccionarObjetivo(
+    elemento,
+    valor
+){
+
+    document
+    .querySelectorAll(
+        "#step1 .choice"
+    )
+    .forEach(
+        function(btn){
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        }
+    );
+
+    elemento.classList.add(
+        "selected"
+    );
+
+    objetivo=valor;
+
+    localStorage.setItem(
+        "objetivo",
+        valor
+    );
+
+}
+
+
+function seleccionarTiempo(
+    elemento,
+    valor
+){
+
+    document
+    .querySelectorAll(
+        "#step2 .choice"
+    )
+    .forEach(
+        function(btn){
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        }
+    );
+
+    elemento.classList.add(
+        "selected"
+    );
+
+    tiempo=valor;
+
+    localStorage.setItem(
+        "tiempo",
+        valor
+    );
+
+}
+
+
+function siguientePaso(numero){
+
+    if(numero===2 && !objetivo){
+
+        alert(
+            "Elegí primero un objetivo."
+        );
+
+        return;
+
+    }
+
+    if(numero===3 && !tiempo){
+
+        alert(
+            "Elegí cuánto tiempo podés dedicar."
+        );
+
+        return;
+
+    }
+
+
+    document
+    .querySelectorAll(".step")
+    .forEach(
+        function(step){
+
+            step.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    document
+    .getElementById(
+        "step"+numero
+    )
+    .classList.add(
+        "active"
+    );
+
+
+    if(numero===3){
+
+        document
+        .getElementById(
+            "recommendation"
+        )
+        .innerText=
+
+        "Tu objetivo principal es " +
+
+        objetivo +
+
+        " y disponés de " +
+
+        tiempo +
+
+        " al día. " +
+
+        "Empezá con un desafío pequeño " +
+
+        "y construí constancia.";
+
+    }
+
+}
+
+
+function comenzarDesafio(){
+
+    cerrarModal(
+        "onboardingModal"
+    );
+
+    abrirDisciplina();
+
+}
+
+
+/* =========================
+   MODALES
+========================= */
+
+function cerrarModal(id){
+
+    document
+    .getElementById(id)
+    .classList.remove(
+        "active"
+    );
+
+}
 
 
 function abrirDisciplina(){
 
     document
-        .getElementById("disciplinaModal")
-        .classList.add("active");
+    .getElementById(
+        "disciplinaModal"
+    )
+    .classList.add(
+        "active"
+    );
+
+    crearDias();
 
     actualizarProgreso();
 
 }
 
 
-function cerrarDisciplina(){
+/* =========================
+   DISCIPLINA
+========================= */
 
-    document
-        .getElementById("disciplinaModal")
-        .classList.remove("active");
+const misiones=[
 
-}
+"Ordená tu habitación y tendé tu cama.",
+
+"Cumplí una tarea pendiente antes de distraerte.",
+
+"Trabajá 30 minutos sin redes sociales.",
+
+"Hacé primero una tarea que venís evitando.",
+
+"Controlá una distracción que normalmente te hace perder tiempo.",
+
+"Cumplí una tarea importante aunque no tengas ganas.",
+
+"Hacé una acción que represente la persona que querés ser."
+
+];
 
 
-/* COMPLETAR DÍA */
+function crearDias(){
 
-function completarDia(dia){
+    const container=
+    document.getElementById(
+        "days"
+    );
 
-    if(!progreso.includes(dia)){
+    container.innerHTML="";
 
-        progreso.push(dia);
 
-        progreso.sort(function(a,b){
-            return a-b;
-        });
+    for(
+        let i=1;
+        i<=7;
+        i++
+    ){
 
-        localStorage.setItem(
-            "disciplinaProgreso",
-            JSON.stringify(progreso)
+        const div=
+        document.createElement(
+            "div"
+        );
+
+        div.className=
+        "day";
+
+        div.id=
+        "day"+i;
+
+
+        div.innerHTML=
+
+        `
+
+        <div>
+
+        <div class="day-number">
+
+        DÍA ${i}
+
+        </div>
+
+        <h4>
+
+        Misión del día
+
+        </h4>
+
+        <p>
+
+        ${misiones[i-1]}
+
+        </p>
+
+        </div>
+
+        <button
+
+        class="complete"
+
+        onclick="completarDia(${i})">
+
+        Completar
+
+        </button>
+
+        `;
+
+
+        container.appendChild(
+            div
         );
 
     }
 
+}
+
+
+function completarDia(dia){
+
+    if(
+        !progreso.includes(dia)
+    ){
+
+        progreso.push(dia);
+
+        progreso.sort(
+            function(a,b){
+
+                return a-b;
+
+            }
+        );
+
+
+        localStorage.setItem(
+
+            "disciplina",
+
+            JSON.stringify(
+                progreso
+            )
+
+        );
+
+    }
+
+
     actualizarProgreso();
 
 }
 
 
-/* ACTUALIZAR PROGRESO */
-
 function actualizarProgreso(){
 
-    for(let i=1;i<=7;i++){
+    const dias=
+    progreso.length;
 
-        const elemento =
-            document.getElementById("day"+i);
 
-        const boton =
-            elemento.querySelector(".complete-btn");
+    document
+    .getElementById(
+        "progressText"
+    )
+    .innerText=
 
-        if(progreso.includes(i)){
+    dias+" / 7";
 
-            elemento.classList.add("completed");
 
-            boton.innerText="✓ Completado";
+    document
+    .getElementById(
+        "progressFill"
+    )
+    .style.width=
+
+    (dias/7*100)+"%";
+
+
+    for(
+        let i=1;
+        i<=7;
+        i++
+    ){
+
+        const day=
+        document.getElementById(
+            "day"+i
+        );
+
+        if(!day)
+        continue;
+
+
+        const button=
+        day.querySelector(
+            "button"
+        );
+
+
+        if(
+            progreso.includes(i)
+        ){
+
+            day.classList.add(
+                "completed"
+            );
+
+            button.innerText=
+            "✓ Completado";
 
         }else{
 
-            elemento.classList.remove("completed");
+            day.classList.remove(
+                "completed"
+            );
 
-            boton.innerText="Completar";
+            button.innerText=
+            "Completar";
 
         }
 
     }
 
 
-    const cantidad =
-        progreso.length;
-
-
-    document.getElementById(
-        "progressText"
-    ).innerText =
-        cantidad + " / 7";
-
-
-    const porcentaje =
-        (cantidad / 7) * 100;
-
-
-    document.getElementById(
-        "progressFill"
-    ).style.width =
-        porcentaje + "%";
-
-
-    if(cantidad === 7){
+    if(dias===7){
 
         document
-            .getElementById("successBox")
-            .classList.add("show");
+        .getElementById(
+            "successBox"
+        )
+        .classList.add(
+            "show"
+        );
 
     }else{
 
         document
-            .getElementById("successBox")
-            .classList.remove("show");
+        .getElementById(
+            "successBox"
+        )
+        .classList.remove(
+            "show"
+        );
 
     }
+
+
+    actualizarEstadisticas();
 
 }
 
 
-/* REINICIAR */
-
 function reiniciarDesafio(){
 
-    const confirmar =
-        confirm(
-            "¿Seguro que querés reiniciar tu desafío?"
-        );
+    if(
+        !confirm(
+            "¿Querés reiniciar el desafío?"
+        )
+    ){
 
-    if(!confirmar){
         return;
+
     }
 
 
@@ -1001,7 +2568,7 @@ function reiniciarDesafio(){
 
 
     localStorage.removeItem(
-        "disciplinaProgreso"
+        "disciplina"
     );
 
 
@@ -1011,46 +2578,294 @@ function reiniciarDesafio(){
 
 
 /* =========================
-   OTRAS ÁREAS
+   ESTADISTICAS
 ========================= */
 
-function mostrarMensaje(area){
+function actualizarEstadisticas(){
 
-    alert(
-        "🚀 " + area +
-        "\n\nEsta sección está en construcción.\n\n" +
-        "Próximamente vas a poder comenzar desafíos " +
-        "específicos de esta área."
+    const dias=
+    progreso.length;
+
+
+    const puntos=
+    dias*100;
+
+
+    const nivel=
+    Math.floor(
+        puntos/300
+    )+1;
+
+
+    document
+    .getElementById(
+        "statDias"
+    )
+    .innerText=
+    dias;
+
+
+    document
+    .getElementById(
+        "statPuntos"
+    )
+    .innerText=
+    puntos;
+
+
+    document
+    .getElementById(
+        "statNivel"
+    )
+    .innerText=
+    nivel;
+
+}
+
+
+/* =========================
+   AREAS
+========================= */
+
+function mostrarArea(area){
+
+    document
+    .getElementById(
+        "areaTitle"
+    )
+    .innerText=
+    area;
+
+
+    document
+    .getElementById(
+        "areaDescription"
+    )
+    .innerText=
+
+    "Estamos preparando desafíos " +
+
+    "y herramientas para ayudarte " +
+
+    "a mejorar tu área de " +
+
+    area +
+
+    ".";
+
+
+    document
+    .getElementById(
+        "areaModal"
+    )
+    .classList.add(
+        "active"
     );
 
 }
 
 
 /* =========================
-   CERRAR MODAL
+   LIBROS
+========================= */
+
+const libros={
+
+
+habitos:{
+
+titulo:
+"📘 Hábitos Atómicos",
+
+texto:
+
+"<strong>Autor:</strong> James Clear<br><br>"+
+
+"<strong>Área:</strong> Hábitos y disciplina<br><br>"+
+
+"<strong>Por qué lo recomendamos:</strong><br>"+
+
+"Es un excelente punto de partida para aprender cómo pequeños cambios sostenidos pueden transformar tus resultados.<br><br>"+
+
+"<strong>Ideal para:</strong> Personas que quieren construir buenos hábitos y eliminar malos hábitos."
+
+},
+
+
+dinero:{
+
+titulo:
+"💰 La Psicología del Dinero",
+
+texto:
+
+"<strong>Autor:</strong> Morgan Housel<br><br>"+
+
+"<strong>Área:</strong> Finanzas<br><br>"+
+
+"<strong>Por qué lo recomendamos:</strong><br>"+
+
+"Ayuda a entender que las decisiones financieras dependen tanto del comportamiento como de los conocimientos técnicos.<br><br>"+
+
+"<strong>Ideal para:</strong> Personas que quieren mejorar su relación con el dinero."
+
+},
+
+
+babilonia:{
+
+titulo:
+"💵 El Hombre Más Rico de Babilonia",
+
+texto:
+
+"<strong>Autor:</strong> George S. Clason<br><br>"+
+
+"<strong>Área:</strong> Finanzas personales<br><br>"+
+
+"<strong>Por qué lo recomendamos:</strong><br>"+
+
+"Presenta principios sencillos sobre ahorro, administración del dinero y construcción de patrimonio.<br><br>"+
+
+"<strong>Ideal para:</strong> Principiantes en educación financiera."
+
+},
+
+
+piense:{
+
+titulo:
+"🧠 Piense y Hágase Rico",
+
+texto:
+
+"<strong>Autor:</strong> Napoleon Hill<br><br>"+
+
+"<strong>Área:</strong> Mentalidad<br><br>"+
+
+"<strong>Por qué lo recomendamos:</strong><br>"+
+
+"Un clásico sobre objetivos, determinación y mentalidad orientada a resultados.<br><br>"+
+
+"<strong>Ideal para:</strong> Personas que buscan trabajar su mentalidad y objetivos."
+
+},
+
+
+7habitos:{
+
+titulo:
+"🎯 Los 7 hábitos de la gente altamente efectiva",
+
+texto:
+
+"<strong>Autor:</strong> Stephen R. Covey<br><br>"+
+
+"<strong>Área:</strong> Desarrollo personal<br><br>"+
+
+"<strong>Por qué lo recomendamos:</strong><br>"+
+
+"Propone principios para mejorar la efectividad personal, las prioridades y las relaciones.<br><br>"+
+
+"<strong>Ideal para:</strong> Personas que quieren organizar mejor su vida."
+
+},
+
+
+carnegie:{
+
+titulo:
+"❤️ Cómo ganar amigos e influir sobre las personas",
+
+texto:
+
+"<strong>Autor:</strong> Dale Carnegie<br><br>"+
+
+"<strong>Área:</strong> Relaciones y comunicación<br><br>"+
+
+"<strong>Por qué lo recomendamos:</strong><br>"+
+
+"Un clásico para trabajar habilidades sociales, comunicación y relaciones interpersonales.<br><br>"+
+
+"<strong>Ideal para:</strong> Personas que quieren mejorar su comunicación y vínculos."
+
+}
+
+};
+
+
+function abrirLibro(id){
+
+    const libro=
+    libros[id];
+
+
+    document
+    .getElementById(
+        "bookTitle"
+    )
+    .innerText=
+    libro.titulo;
+
+
+    document
+    .getElementById(
+        "bookInfo"
+    )
+    .innerHTML=
+    libro.texto;
+
+
+    document
+    .getElementById(
+        "bookModal"
+    )
+    .classList.add(
+        "active"
+    );
+
+}
+
+
+/* =========================
+   CERRAR MODALES
 ========================= */
 
 document
-    .getElementById("disciplinaModal")
-    .addEventListener(
-        "click",
-        function(event){
+.querySelectorAll(".modal")
+.forEach(
+    function(modal){
 
-            if(event.target === this){
+        modal.addEventListener(
+            "click",
+            function(event){
 
-                cerrarDisciplina();
+                if(
+                    event.target===modal
+                ){
+
+                    modal.classList.remove(
+                        "active"
+                    );
+
+                }
 
             }
+        );
 
-        }
-    );
+    }
+);
 
 
-/* CARGAR PROGRESO */
+/* =========================
+   INICIALIZAR
+========================= */
 
-actualizarProgreso();
+actualizarEstadisticas();
 
 </script>
 
+
 </body>
+
 </html>
