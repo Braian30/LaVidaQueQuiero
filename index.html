@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Vida Que Quiero</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    height:70px;
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:#0d0d0d;
+    border-bottom:1px solid #262626;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#d4af37;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+    min-height:470px;
+
+    display:flex;
+    align-items:center;
+
+    padding:70px 8%;
+
+    background:
+    radial-gradient(circle at 80% 30%,#3d300b,transparent 35%),
+    linear-gradient(120deg,#080808,#151515);
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,80px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#d4af37;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.button{
+    display:inline-block;
+
+    background:#d4af37;
+    color:#111;
+
+    border:none;
+    border-radius:7px;
+
+    padding:14px 24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-3px);
+}
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:65px 0;
+}
+
+.title{
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+.title span{
+    color:#d4af37;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.stat{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:25px;
+}
+
+.stat-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:bold;
+    color:#d4af37;
+}
+
+.stat-name{
+    color:#888;
+    margin-top:5px;
+}
+
+/* MISION */
+
+.mission{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:14px;
+    padding:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.mission h3{
+    color:#d4af37;
+    margin-bottom:10px;
+}
+
+.mission p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+.mission.completed{
+    border-color:#d4af37;
+}
+
+/* CATEGORIAS */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:18px;
+}
+
+.category{
+    background:#151515;
+    border:1px solid #292929;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    border-color:#d4af37;
+}
+
+.icon{
+    font-size:34px;
+    margin-bottom:14px;
+}
+
+.category h3{
+    margin-bottom:8px;
+}
+
+.category p{
+    color:#888;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* VIDEOS */
+
+.videos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+}
+
+.video{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.video iframe{
+    width:100%;
+    height:190px;
+    border:none;
+}
+
+.video-info{
+    padding:18px;
+}
+
+.video-info h3{
+    margin-bottom:8px;
+}
+
+.video-info p{
+    color:#888;
+    font-size:13px;
+}
+
+/* PROGRESO */
+
+.progress-box{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:14px;
+    padding:30px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.progress-bar{
+    height:13px;
+    background:#292929;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#d4af37;
+    transition:.5s;
+}
+
+.level{
+    margin-top:15px;
+    color:#aaa;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:#111;
+    border-top:1px solid #292929;
+    color:#777;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        display:none;
+    }
+
+    header{
+        padding:0 20px;
+    }
+
+    .hero{
+        padding:60px 25px;
+    }
+
+    .mission{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header>
+
+<div class="logo">
+LA VIDA <span>QUE QUIERO</span>
+</div>
+
+<nav>
+
+<a href="#inicio">Inicio</a>
+<a href="#progreso">Progreso</a>
+<a href="#categorias">Categorías</a>
+<a href="#videos">Videos</a>
+
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<h1>
+Construí tu
+<span>mejor versión.</span>
+</h1>
+
+<p>
+No necesitás cambiar tu vida de un día para otro.
+Mejorá un poco cada día.
+</p>
+
+<a href="#mision" class="button">
+Comenzar
+</a>
+
+</div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section>
+
+<div class="container">
+
+<h2 class="title">
+Tu <span>progreso</span>
+</h2>
+
+<div class="dashboard">
+
+<div class="stat">
+
+<div class="stat-icon">⭐</div>
+
+<div class="stat-number" id="xp">
+0
+</div>
+
+<div class="stat-name">
+Puntos XP
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">🔥</div>
+
+<div class="stat-number" id="streak">
+0
+</div>
+
+<div class="stat-name">
+Días de racha
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">🎯</div>
+
+<div class="stat-number" id="missions">
+0
+</div>
+
+<div class="stat-name">
+Misiones completadas
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">🏆</div>
+
+<div class="stat-number" id="level">
+1
+</div>
+
+<div class="stat-name">
+Nivel
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MISION -->
+
+<section id="mision">
+
+<div class="container">
+
+<h2 class="title">
+🎯 Misión de <span>hoy</span>
+</h2>
+
+
+<div class="mission" id="missionBox">
+
+<div>
+
+<h3>
+30 minutos sin distracciones
+</h3>
+
+<p>
+Alejá el celular durante 30 minutos.
+Usá ese tiempo para estudiar, entrenar,
+leer o trabajar en algo importante.
+</p>
+
+</div>
+
+<button
+class="button"
+onclick="completeMission()"
+id="missionButton">
+
+Completar misión
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CATEGORIAS -->
+
+<section id="categorias">
+
+<div class="container">
+
+<h2 class="title">
+Las áreas de tu <span>vida</span>
+</h2>
+
+
+<div class="categories">
+
+
+<div class="category">
+
+<div class="icon">🧠</div>
+
+<h3>Mente</h3>
+
+<p>
+Disciplina, mentalidad,
+concentración y autocontrol.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">💰</div>
+
+<h3>Dinero</h3>
+
+<p>
+Finanzas, ahorro,
+inversión y negocios.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">💪</div>
+
+<h3>Cuerpo</h3>
+
+<p>
+Entrenamiento, descanso
+y hábitos saludables.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">❤️</div>
+
+<h3>Relaciones</h3>
+
+<p>
+Comunicación, empatía,
+límites y responsabilidad.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">💼</div>
+
+<h3>Negocios</h3>
+
+<p>
+Ventas, emprendimiento
+y liderazgo.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">📚</div>
+
+<h3>Educación</h3>
+
+<p>
+Libros, aprendizaje
+y pensamiento crítico.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">👔</div>
+
+<h3>Presencia</h3>
+
+<p>
+Imagen, estilo,
+comunicación y confianza.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">🎯</div>
+
+<h3>Propósito</h3>
+
+<p>
+Metas, objetivos
+y dirección.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VIDEOS -->
+
+<section id="videos">
+
+<div class="container">
+
+<h2 class="title">
+
+🎥 Contenido para
+<span>crecer</span>
+
+</h2>
+
+
+<div class="videos">
+
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+
+<div class="video-info">
+
+<h3>
+Mentalidad y disciplina
+</h3>
+
+<p>
+Contenido para desarrollar
+disciplina y mejores hábitos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+
+<div class="video-info">
+
+<h3>
+Educación financiera
+</h3>
+
+<p>
+Aprendé a manejar mejor
+tu dinero.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+
+<div class="video-info">
+
+<h3>
+Disciplina
+</h3>
+
+<p>
+Pequeños hábitos pueden
+generar grandes cambios.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROGRESO -->
+
+<section id="progreso">
+
+<div class="container">
+
+<h2 class="title">
+🏆 Tu <span>nivel</span>
+</h2>
+
+
+<div class="progress-box">
+
+<div class="progress-top">
+
+<strong id="levelName">
+Nivel 1 — Constructor
+</strong>
+
+<strong id="percentage">
+0%
+</strong>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div
+class="progress"
+id="progress">
+</div>
+
+</div>
+
+
+<p class="level">
+
+Completá misiones para ganar XP
+y subir de nivel.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<strong>
+LA VIDA QUE QUIERO
+</strong>
+
+<p style="margin-top:10px">
+
+Construí tu mejor versión,
+un día a la vez.
+
+</p>
+
+</footer>
+
+
+<script>
+
+/* VARIABLES */
+
+let xp = Number(localStorage.getItem("xp")) || 0;
+
+let missions =
+Number(localStorage.getItem("missions")) || 0;
+
+let streak =
+Number(localStorage.getItem("streak")) || 0;
+
+let lastMission =
+localStorage.getItem("lastMission");
+
+
+/* ACTUALIZAR PANTALLA */
+
+function updateScreen(){
+
+document.getElementById("xp").textContent = xp;
+
+document.getElementById("missions").textContent = missions;
+
+document.getElementById("streak").textContent = streak;
+
+
+/* NIVEL */
+
+let level =
+Math.floor(xp / 100) + 1;
+
+document.getElementById("level").textContent = level;
+
+
+/* PROGRESO */
+
+let progress =
+xp % 100;
+
+document.getElementById("progress").style.width =
+progress + "%";
+
+document.getElementById("percentage").textContent =
+progress + "%";
+
+
+/* NOMBRE DEL NIVEL */
+
+let names = [
+
+"Constructor",
+"Disciplinado",
+"Guerrero",
+"Evolución",
+"Maestro"
+
+];
+
+let name =
+names[Math.min(level - 1, names.length - 1)];
+
+document.getElementById("levelName").textContent =
+"Nivel " + level + " — " + name;
+
+}
+
+
+/* COMPLETAR MISION */
+
+function completeMission(){
+
+let today =
+new Date().toDateString();
+
+
+if(lastMission === today){
+
+alert(
+"🔥 Ya completaste la misión de hoy.\n\n" +
+"Volvé mañana para continuar tu racha."
+);
+
+return;
+
+}
+
+
+/* SUMAR XP */
+
+xp += 25;
+
+missions += 1;
+
+streak += 1;
+
+lastMission = today;
+
+
+/* GUARDAR */
+
+localStorage.setItem("xp",xp);
+
+localStorage.setItem("missions",missions);
+
+localStorage.setItem("streak",streak);
+
+localStorage.setItem("lastMission",lastMission);
+
+
+/* CAMBIAR BOTON */
+
+document.getElementById("missionButton").textContent =
+"✓ Misión completada";
+
+document.getElementById("missionBox")
+.classList.add("completed");
+
+
+updateScreen();
+
+
+alert(
+"🔥 ¡Excelente!\n\n" +
+"+25 XP\n\n" +
+"Seguí así. Cada pequeño paso cuenta."
+);
+
+}
+
+
+/* INICIAR */
+
+updateScreen();
+
+</script>
+
+</body>
+</html>
