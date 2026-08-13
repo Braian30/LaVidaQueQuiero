@@ -1,232 +1,1056 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Vida Que Quiero</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>La Vida Que Quiero</title>
 
-    <script>
-function iniciarDisciplina() {
-  alert("🔥 DESAFÍO DE DISCIPLINA\n\nDurante los próximos 7 días vas a cumplir una misión diaria.\n\nDÍA 1\nTendé tu cama apenas te levantes.\n\n¿Estás preparado para empezar?");
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
-</script>
-    
-    body {
-      background: #0b0b0b;
-      color: white;
-      min-height: 100vh;
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080808;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(8,8,8,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 20px;
+    background:
+    radial-gradient(circle at center,#1b1608 0%,#080808 55%);
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,90px);
+    line-height:.98;
+    max-width:1000px;
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    color:#d4af37;
+}
+
+.hero p{
+    max-width:700px;
+    color:#aaa;
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:40px;
+}
+
+.btn{
+    display:inline-block;
+    border:none;
+    padding:16px 35px;
+    background:#d4af37;
+    color:#000;
+    text-decoration:none;
+    font-weight:800;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(212,175,55,.2);
+}
+
+/* AREAS */
+
+.areas{
+    padding:90px 7%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#888;
+    max-width:650px;
+    margin:0 auto 55px;
+    line-height:1.6;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:linear-gradient(145deg,#171717,#101010);
+    border:1px solid #292929;
+    border-radius:18px;
+    padding:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#d4af37;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#999;
+    line-height:1.6;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(8px);
+    padding:20px;
+    overflow-y:auto;
+}
+
+.modal.active{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    width:100%;
+    max-width:650px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#111;
+    border:1px solid #333;
+    border-radius:22px;
+    padding:30px;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.8);
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    background:none;
+    border:none;
+    color:#aaa;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.close:hover{
+    color:#fff;
+}
+
+.modal-title{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.modal-description{
+    color:#999;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+/* PROGRESS */
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.progress-bar{
+    width:100%;
+    height:12px;
+    background:#252525;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#d4af37;
+    transition:.5s;
+}
+
+/* DAYS */
+
+.day{
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.day.completed{
+    border-color:#d4af37;
+    background:#19170f;
+}
+
+.day-number{
+    color:#d4af37;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.day h4{
+    margin-bottom:5px;
+}
+
+.day p{
+    color:#888;
+    font-size:14px;
+}
+
+.complete-btn{
+    border:1px solid #444;
+    background:#222;
+    color:#fff;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.complete-btn:hover{
+    border-color:#d4af37;
+}
+
+.day.completed .complete-btn{
+    background:#d4af37;
+    color:#000;
+    border-color:#d4af37;
+}
+
+/* RESET */
+
+.reset{
+    margin-top:20px;
+    background:transparent;
+    color:#777;
+    border:1px solid #333;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.reset:hover{
+    color:#fff;
+}
+
+/* SUCCESS */
+
+.success{
+    display:none;
+    text-align:center;
+    background:#19170f;
+    border:1px solid #d4af37;
+    border-radius:15px;
+    padding:25px;
+    margin-top:20px;
+}
+
+.success.show{
+    display:block;
+}
+
+.success h3{
+    color:#d4af37;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    border-top:1px solid #222;
+    color:#666;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+        padding:18px 5%;
     }
 
-    header {
-      padding: 25px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
+    .logo{
+        font-size:17px;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
+    .hero{
+        min-height:80vh;
     }
 
-    .logo span {
-      color: #d4af37;
+    .hero p{
+        font-size:17px;
     }
 
-    .hero {
-      min-height: 75vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
+    .areas{
+        padding:70px 5%;
     }
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 90px);
-      max-width: 1000px;
-      line-height: 1;
-      margin-bottom: 25px;
+    .section-title{
+        font-size:34px;
     }
 
-    .hero h1 span {
-      color: #d4af37;
+    .modal-box{
+        padding:22px;
     }
 
-    .hero p {
-      max-width: 650px;
-      color: #aaa;
-      font-size: 20px;
-      line-height: 1.6;
-      margin-bottom: 35px;
+    .modal-title{
+        font-size:27px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 16px 35px;
-      background: #d4af37;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
+    .day{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      background: #f0ca4d;
+    .complete-btn{
+        width:100%;
     }
 
-    .areas {
-      padding: 70px 8%;
-    }
+}
 
-    .areas h2 {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 50px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #151515;
-      border: 1px solid #252525;
-      border-radius: 15px;
-      padding: 30px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #d4af37;
-    }
-
-    .card .icon {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: #999;
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      border-top: 1px solid #222;
-      color: #666;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">LA VIDA <span>QUE QUIERO</span></div>
-  </header>
+<header>
 
-  <section class="hero">
-    <h1>Construí la <span>vida que querés.</span></h1>
+    <div class="logo">
+        LA VIDA <span>QUE QUIERO</span>
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        Construí la <span>vida que querés.</span>
+    </h1>
 
     <p>
-      Una plataforma para hombres que quieren mejorar su cuerpo,
-      mente, dinero, relaciones, disciplina y propósito.
+        Una plataforma para mejorar tu cuerpo, mente,
+        disciplina, relaciones, propósito y finanzas.
+        Un paso cada día.
     </p>
 
-    <a href="#inicio" class="btn">EMPEZAR AHORA</a>
-  </section>
+    <a href="#areas" class="btn">
+        EMPEZAR AHORA
+    </a>
 
-  <section class="areas" id="inicio">
+</section>
 
-    <h2>Construí tu mejor versión</h2>
+
+<!-- AREAS -->
+
+<section class="areas" id="areas">
+
+    <h2 class="section-title">
+        Construí tu mejor versión
+    </h2>
+
+    <p class="section-subtitle">
+        Elegí un área y empezá a trabajar en ella.
+        Tu transformación comienza con una decisión.
+    </p>
+
 
     <div class="grid">
 
-      <div class="card">
-        <div class="icon">💪</div>
-        <h3>Cuerpo</h3>
-        <p>Entrenamiento, alimentación y hábitos para construir un cuerpo fuerte.</p>
-      </div>
 
-      <div class="card">
-        <div class="icon">🧠</div>
-        <h3>Mentalidad</h3>
-        <p>Fortalecé tu mente, confianza y capacidad para enfrentar desafíos.</p>
-      </div>
+        <!-- CUERPO -->
 
-      <div class="card">
-        <div class="icon">💰</div>
-        <h3>Finanzas</h3>
-        <p>Aprendé a administrar, ahorrar, invertir y construir patrimonio.</p>
-      </div>
+        <div class="card" onclick="mostrarMensaje('Cuerpo')">
 
-      <div class="card">
-        <div class="icon">💼</div>
-        <h3>Negocios</h3>
-        <p>Desarrollá habilidades para generar ingresos y crear oportunidades.</p>
-      </div>
+            <div class="icon">💪</div>
 
-      <div class="card">
-        <div class="icon">❤️</div>
-        <h3>Relaciones</h3>
-        <p>Mejorá tus relaciones, comunicación y vida social.</p>
-      </div>
+            <h3>Cuerpo</h3>
 
-      <div class="card">
-        <div class="icon">🎯</div>
-        <h3>Propósito</h3>
-        <p>Definí hacia dónde querés ir y construí un camino con sentido.</p>
-      </div>
+            <p>
+                Entrenamiento, alimentación y hábitos
+                para construir un cuerpo fuerte.
+            </p>
 
-  <div class="card" onclick="iniciarDisciplina()" style="cursor:pointer;">
-  <div class="icon">🔥</div>
-  <h3>Disciplina</h3>
-  <p>Convertí tus objetivos en acciones y desarrollá constancia.</p>
-</div>
+        </div>
 
-      <div class="card">
-        <div class="icon">🚀</div>
-        <h3>Misiones</h3>
-        <p>Pequeños desafíos diarios para avanzar un paso cada día.</p>
-      </div>
+
+        <!-- MENTALIDAD -->
+
+        <div class="card" onclick="mostrarMensaje('Mentalidad')">
+
+            <div class="icon">🧠</div>
+
+            <h3>Mentalidad</h3>
+
+            <p>
+                Fortalecé tu mente, confianza y capacidad
+                para enfrentar desafíos.
+            </p>
+
+        </div>
+
+
+        <!-- FINANZAS -->
+
+        <div class="card" onclick="mostrarMensaje('Finanzas')">
+
+            <div class="icon">💰</div>
+
+            <h3>Finanzas</h3>
+
+            <p>
+                Aprendé a administrar, ahorrar,
+                invertir y construir patrimonio.
+            </p>
+
+        </div>
+
+
+        <!-- NEGOCIOS -->
+
+        <div class="card" onclick="mostrarMensaje('Negocios')">
+
+            <div class="icon">💼</div>
+
+            <h3>Negocios</h3>
+
+            <p>
+                Desarrollá habilidades para generar
+                ingresos y crear oportunidades.
+            </p>
+
+        </div>
+
+
+        <!-- RELACIONES -->
+
+        <div class="card" onclick="mostrarMensaje('Relaciones')">
+
+            <div class="icon">❤️</div>
+
+            <h3>Relaciones</h3>
+
+            <p>
+                Mejorá tus relaciones, comunicación
+                y vida social.
+            </p>
+
+        </div>
+
+
+        <!-- PROPOSITO -->
+
+        <div class="card" onclick="mostrarMensaje('Propósito')">
+
+            <div class="icon">🎯</div>
+
+            <h3>Propósito</h3>
+
+            <p>
+                Definí hacia dónde querés ir
+                y construí un camino con sentido.
+            </p>
+
+        </div>
+
+
+        <!-- DISCIPLINA -->
+
+        <div class="card"
+             onclick="abrirDisciplina()">
+
+            <div class="icon">🔥</div>
+
+            <h3>Disciplina</h3>
+
+            <p>
+                Convertí tus objetivos en acciones
+                y desarrollá constancia.
+            </p>
+
+        </div>
+
+
+        <!-- MISIONES -->
+
+        <div class="card" onclick="mostrarMensaje('Misiones')">
+
+            <div class="icon">🚀</div>
+
+            <h3>Misiones</h3>
+
+            <p>
+                Pequeños desafíos diarios para avanzar
+                un paso cada día.
+            </p>
+
+        </div>
+
 
     </div>
-  </section>
 
-  <footer>
+</section>
+
+
+<!-- MODAL DISCIPLINA -->
+
+<div class="modal" id="disciplinaModal">
+
+    <div class="modal-box">
+
+        <button class="close"
+                onclick="cerrarDisciplina()">
+            ×
+        </button>
+
+
+        <h2 class="modal-title">
+            🔥 Desafío de Disciplina
+        </h2>
+
+        <p class="modal-description">
+            Durante 7 días vas a completar una misión
+            diaria. No busques perfección. Buscá constancia.
+        </p>
+
+
+        <div class="progress-info">
+
+            <span>Tu progreso</span>
+
+            <span id="progressText">
+                0 / 7
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"
+                 id="progressFill">
+            </div>
+
+        </div>
+
+
+        <div id="daysContainer">
+
+
+            <!-- DÍA 1 -->
+
+            <div class="day" id="day1">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 1
+                    </div>
+
+                    <h4>
+                        Ordená tu entorno
+                    </h4>
+
+                    <p>
+                        Tendé tu cama y ordená tu habitación
+                        apenas comiences el día.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(1)">
+                    Completar
+                </button>
+
+            </div>
+
+
+            <!-- DÍA 2 -->
+
+            <div class="day" id="day2">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 2
+                    </div>
+
+                    <h4>
+                        Cumplí una promesa
+                    </h4>
+
+                    <p>
+                        Elegí una tarea pendiente y terminala
+                        antes de distraerte.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(2)">
+                    Completar
+                </button>
+
+            </div>
+
+
+            <!-- DÍA 3 -->
+
+            <div class="day" id="day3">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 3
+                    </div>
+
+                    <h4>
+                        30 minutos sin distracciones
+                    </h4>
+
+                    <p>
+                        Trabajá durante 30 minutos
+                        sin redes sociales ni distracciones.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(3)">
+                    Completar
+                </button>
+
+            </div>
+
+
+            <!-- DÍA 4 -->
+
+            <div class="day" id="day4">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 4
+                    </div>
+
+                    <h4>
+                        Hacé lo difícil primero
+                    </h4>
+
+                    <p>
+                        Completá una tarea que venís evitando.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(4)">
+                    Completar
+                </button>
+
+            </div>
+
+
+            <!-- DÍA 5 -->
+
+            <div class="day" id="day5">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 5
+                    </div>
+
+                    <h4>
+                        Controlá tus impulsos
+                    </h4>
+
+                    <p>
+                        Evitá durante el día una distracción
+                        que normalmente te hace perder tiempo.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(5)">
+                    Completar
+                </button>
+
+            </div>
+
+
+            <!-- DÍA 6 -->
+
+            <div class="day" id="day6">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 6
+                    </div>
+
+                    <h4>
+                        Cumplí aunque no tengas ganas
+                    </h4>
+
+                    <p>
+                        Elegí una tarea importante y hacela
+                        aunque no tengas motivación.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(6)">
+                    Completar
+                </button>
+
+            </div>
+
+
+            <!-- DÍA 7 -->
+
+            <div class="day" id="day7">
+
+                <div>
+
+                    <div class="day-number">
+                        DÍA 7
+                    </div>
+
+                    <h4>
+                        Demostrate que podés
+                    </h4>
+
+                    <p>
+                        Completá una acción que represente
+                        la persona que querés convertirte.
+                    </p>
+
+                </div>
+
+                <button class="complete-btn"
+                        onclick="completarDia(7)">
+                    Completar
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="success" id="successBox">
+
+            <h3>
+                🏆 ¡DESAFÍO COMPLETADO!
+            </h3>
+
+            <p>
+                Completaste los 7 días.
+                Acabás de demostrar que podés cumplir
+                lo que te proponés.
+            </p>
+
+        </div>
+
+
+        <button class="reset"
+                onclick="reiniciarDesafio()">
+            Reiniciar desafío
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
     © 2026 La Vida Que Quiero
-  </footer>
+
+    <br><br>
+
+    Construí un día a la vez.
+
+</footer>
+
+
 <script>
-function iniciarDisciplina() {
-  alert(
-    "🔥 DESAFÍO DE DISCIPLINA\n\n" +
-    "Durante los próximos 7 días vas a cumplir una misión diaria.\n\n" +
-    "DÍA 1\n" +
-    "Tendé tu cama apenas te levantes.\n\n" +
-    "¿Estás preparado para empezar?"
-  );
+
+/* =========================
+   DISCIPLINA
+========================= */
+
+let progreso =
+    JSON.parse(localStorage.getItem("disciplinaProgreso")) || [];
+
+
+function abrirDisciplina(){
+
+    document
+        .getElementById("disciplinaModal")
+        .classList.add("active");
+
+    actualizarProgreso();
+
 }
+
+
+function cerrarDisciplina(){
+
+    document
+        .getElementById("disciplinaModal")
+        .classList.remove("active");
+
+}
+
+
+/* COMPLETAR DÍA */
+
+function completarDia(dia){
+
+    if(!progreso.includes(dia)){
+
+        progreso.push(dia);
+
+        progreso.sort(function(a,b){
+            return a-b;
+        });
+
+        localStorage.setItem(
+            "disciplinaProgreso",
+            JSON.stringify(progreso)
+        );
+
+    }
+
+    actualizarProgreso();
+
+}
+
+
+/* ACTUALIZAR PROGRESO */
+
+function actualizarProgreso(){
+
+    for(let i=1;i<=7;i++){
+
+        const elemento =
+            document.getElementById("day"+i);
+
+        const boton =
+            elemento.querySelector(".complete-btn");
+
+        if(progreso.includes(i)){
+
+            elemento.classList.add("completed");
+
+            boton.innerText="✓ Completado";
+
+        }else{
+
+            elemento.classList.remove("completed");
+
+            boton.innerText="Completar";
+
+        }
+
+    }
+
+
+    const cantidad =
+        progreso.length;
+
+
+    document.getElementById(
+        "progressText"
+    ).innerText =
+        cantidad + " / 7";
+
+
+    const porcentaje =
+        (cantidad / 7) * 100;
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        porcentaje + "%";
+
+
+    if(cantidad === 7){
+
+        document
+            .getElementById("successBox")
+            .classList.add("show");
+
+    }else{
+
+        document
+            .getElementById("successBox")
+            .classList.remove("show");
+
+    }
+
+}
+
+
+/* REINICIAR */
+
+function reiniciarDesafio(){
+
+    const confirmar =
+        confirm(
+            "¿Seguro que querés reiniciar tu desafío?"
+        );
+
+    if(!confirmar){
+        return;
+    }
+
+
+    progreso=[];
+
+
+    localStorage.removeItem(
+        "disciplinaProgreso"
+    );
+
+
+    actualizarProgreso();
+
+}
+
+
+/* =========================
+   OTRAS ÁREAS
+========================= */
+
+function mostrarMensaje(area){
+
+    alert(
+        "🚀 " + area +
+        "\n\nEsta sección está en construcción.\n\n" +
+        "Próximamente vas a poder comenzar desafíos " +
+        "específicos de esta área."
+    );
+
+}
+
+
+/* =========================
+   CERRAR MODAL
+========================= */
+
+document
+    .getElementById("disciplinaModal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === this){
+
+                cerrarDisciplina();
+
+            }
+
+        }
+    );
+
+
+/* CARGAR PROGRESO */
+
+actualizarProgreso();
+
 </script>
+
 </body>
 </html>
