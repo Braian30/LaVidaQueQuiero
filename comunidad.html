@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Comunidad LVQ</title>
+
+  <style>
+    :root {
+      --bg: #080808;
+      --card: #141414;
+      --card2: #181818;
+      --border: #292929;
+      --text: #fff;
+      --muted: #999;
+      --gold: #d4af37;
+      --gold-light: #f0cf63;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(8,8,8,.94);
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid #222;
+
+      padding: 18px 4%;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .7px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .back-btn {
+      background: #171717;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero {
+      padding: 70px 0 40px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      margin: 10px 0;
+      line-height: 1;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 22px;
+      padding-bottom: 70px;
+    }
+
+    .main-column,
+    .sidebar {
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .panel h2 {
+      margin-bottom: 8px;
+    }
+
+    .panel p {
+      color: var(--muted);
+    }
+
+    .new-post {
+      background:
+        linear-gradient(
+          135deg,
+          #19160c,
+          #121212
+        );
+      border-color: #403619;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: #bbb;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border-radius: 9px;
+      border: 1px solid #363636;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 12px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--gold);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .primary {
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #000;
+      padding: 12px 18px;
+      border-radius: 9px;
+      font-weight: 900;
+    }
+
+    .primary:hover {
+      background: var(--gold-light);
+    }
+
+    .category-list {
+      display: grid;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .category-btn {
+      width: 100%;
+      text-align: left;
+      padding: 11px;
+      border-radius: 8px;
+      border: 1px solid #303030;
+      background: #171717;
+      color: #fff;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .rules {
+      margin-top: 20px;
+    }
+
+    .rules ul {
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+    }
+
+    .post {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .post + .post {
+      margin-top: 14px;
+    }
+
+    .post-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .post-author {
+      font-weight: 900;
+    }
+
+    .post-date {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .post-category {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px solid #463a19;
+      background: #1a170c;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .post h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .post-content {
+      color: #bbb;
+      white-space: pre-wrap;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      border: 1px solid #343434;
+      background: #181818;
+      color: #fff;
+      padding: 9px 12px;
+      border-radius: 8px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--gold);
+    }
+
+    .empty {
+      padding: 45px 20px;
+      text-align: center;
+      color: #777;
+      border: 1px dashed #333;
+      border-radius: 15px;
+    }
+
+    .notice {
+      color: #888;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #222;
+      padding: 35px 20px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <span>LA VIDA</span> QUE QUIERO
+    </a>
+
+    <a class="back-btn" href="index.html">
+      ← Volver a LVQ
+    </a>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">COMUNIDAD LVQ</span>
+
+    <h1>Compartí tu camino.</h1>
+
+    <p>
+      Sueños, experiencias, aprendizajes, dificultades y logros.
+      No estamos acá para aparentar una vida perfecta.
+      Estamos para avanzar juntos.
+    </p>
+  </div>
+</section>
+
+
+<main class="container layout">
+
+  <section class="main-column">
+
+    <div class="panel new-post">
+
+      <span class="eyebrow">COMPARTÍ ALGO</span>
+
+      <h2>¿Qué querés contar?</h2>
+
+      <p>
+        Una experiencia, un objetivo, un aprendizaje o algo que estés atravesando.
+      </p>
+
+      <br>
+
+      <div class="form-group">
+        <label for="author">Tu nombre</label>
+
+        <input
+          id="author"
+          type="text"
+          maxlength="30"
+          placeholder="Ej: Braian"
+        >
+      </div>
+
+
+      <div class="form-group">
+        <label for="category">Categoría</label>
+
+        <select id="category">
+
+          <option value="Sueños y objetivos">
+            🌅 Sueños y objetivos
+          </option>
+
+          <option value="Crecimiento personal">
+            📈 Crecimiento personal
+          </option>
+
+          <option value="Experiencias">
+            🧠 Experiencias
+          </option>
+
+          <option value="Finanzas">
+            💰 Finanzas
+          </option>
+
+          <option value="Relaciones">
+            ❤️ Relaciones
+          </option>
+
+          <option value="Logros">
+            🏆 Logros
+          </option>
+
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="title">Título</label>
+
+        <input
+          id="title"
+          type="text"
+          maxlength="80"
+          placeholder="Ej: Mi objetivo para este año"
+        >
+      </div>
+
+
+      <div class="form-group">
+        <label for="content">Tu experiencia</label>
+
+        <textarea
+          id="content"
+          maxlength="1200"
+          placeholder="Contanos tu historia, tu objetivo o lo que aprendiste..."
+        ></textarea>
+      </div>
+
+
+      <button class="primary" onclick="createPost()">
+        PUBLICAR
+      </button>
+
+      <p class="notice">
+        En esta versión beta las publicaciones se guardan
+        solamente en este navegador.
+      </p>
+
+    </div>
+
+
+    <div id="posts"></div>
+
+  </section>
+
+
+  <aside class="sidebar">
+
+    <div class="panel">
+
+      <span class="eyebrow">EXPLORAR</span>
+
+      <h2>Categorías</h2>
+
+      <div class="category-list">
+
+        <button
+          class="category-btn active"
+          data-category="Todas"
+          onclick="filterCategory('Todas')"
+        >
+          🌎 Todas
+        </button>
+
+        <button
+          class="category-btn"
+          data-category="Sueños y objetivos"
+          onclick="filterCategory('Sueños y objetivos')"
+        >
+          🌅 Sueños y objetivos
+        </button>
+
+        <button
+          class="category-btn"
+          data-category="Crecimiento personal"
+          onclick="filterCategory('Crecimiento personal')"
+        >
+          📈 Crecimiento personal
+        </button>
+
+        <button
+          class="category-btn"
+          data-category="Experiencias"
+          onclick="filterCategory('Experiencias')"
+        >
+          🧠 Experiencias
+        </button>
+
+        <button
+          class="category-btn"
+          data-category="Finanzas"
+          onclick="filterCategory('Finanzas')"
+        >
+          💰 Finanzas
+        </button>
+
+        <button
+          class="category-btn"
+          data-category="Relaciones"
+          onclick="filterCategory('Relaciones')"
+        >
+          ❤️ Relaciones
+        </button>
+
+        <button
+          class="category-btn"
+          data-category="Logros"
+          onclick="filterCategory('Logros')"
+        >
+          🏆 Logros
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="panel rules">
+
+      <span class="eyebrow">REGLAS LVQ</span>
+
+      <h2>Construimos juntos.</h2>
+
+      <ul>
+        <li>Respeto.</li>
+        <li>No insultos.</li>
+        <li>No acoso.</li>
+        <li>No spam.</li>
+        <li>No divulgar datos privados.</li>
+        <li>Compartí experiencias, no diagnósticos.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="panel">
+
+      <span class="eyebrow">LA IDEA</span>
+
+      <p>
+        No hace falta tener la vida resuelta para empezar.
+        Podés estar construyéndola junto a nosotros.
+      </p>
+
+    </div>
+
+  </aside>
+
+</main>
+
+
+<footer>
+
+  <strong>LA VIDA QUE QUIERO</strong>
+
+  <p>
+    Creá tu camino. Construí tu libertad.
+  </p>
+
+  <br>
+
+  <small>
+    © 2026 LVQ
+  </small>
+
+</footer>
+
+
+<script>
+
+const STORAGE = "lvq_community_v1";
+
+let posts = loadPosts();
+
+let activeCategory = "Todas";
+
+
+function loadPosts() {
+
+  try {
+
+    const saved =
+      localStorage.getItem(STORAGE);
+
+    if (!saved) {
+
+      return [
+        {
+          id: Date.now(),
+          author: "Comunidad LVQ",
+          category: "Sueños y objetivos",
+          title: "Bienvenido a Comunidad LVQ",
+          content:
+            "Este es nuestro primer espacio para compartir sueños, experiencias, aprendizajes y logros. Contanos qué estás construyendo.",
+          likes: 0,
+          createdAt: new Date().toISOString()
+        }
+      ];
+
+    }
+
+    return JSON.parse(saved);
+
+  } catch (error) {
+
+    return [];
+
+  }
+
+}
+
+
+function savePosts() {
+
+  localStorage.setItem(
+    STORAGE,
+    JSON.stringify(posts)
+  );
+
+}
+
+
+function createPost() {
+
+  const author =
+    document.getElementById("author")
+      .value
+      .trim();
+
+  const category =
+    document.getElementById("category")
+      .value;
+
+  const title =
+    document.getElementById("title")
+      .value
+      .trim();
+
+  const content =
+    document.getElementById("content")
+      .value
+      .trim();
+
+
+  if (!author) {
+
+    alert("Escribí tu nombre.");
+
+    return;
+
+  }
+
+
+  if (!title) {
+
+    alert("Poné un título.");
+
+    return;
+
+  }
+
+
+  if (!content) {
+
+    alert("Escribí tu experiencia.");
+
+    return;
+
+  }
+
+
+  const newPost = {
+
+    id: Date.now(),
+
+    author,
+
+    category,
+
+    title,
+
+    content,
+
+    likes: 0,
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+
+  posts.unshift(newPost);
+
+  savePosts();
+
+
+  document.getElementById("title")
+    .value = "";
+
+  document.getElementById("content")
+    .value = "";
+
+
+  renderPosts();
+
+  window.scrollTo({
+    top: 300,
+    behavior: "smooth"
+  });
+
+}
+
+
+function formatDate(dateString) {
+
+  const date =
+    new Date(dateString);
+
+  return date.toLocaleDateString(
+    "es-AR",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }
+  );
+
+}
+
+
+function likePost(id) {
+
+  const post =
+    posts.find(
+      item => item.id === id
+    );
+
+
+  if (!post) return;
+
+
+  post.likes++;
+
+  savePosts();
+
+  renderPosts();
+
+}
+
+
+function filterCategory(category) {
+
+  activeCategory = category;
+
+
+  document
+    .querySelectorAll(".category-btn")
+    .forEach(button => {
+
+      button.classList.toggle(
+        "active",
+        button.dataset.category === category
+      );
+
+    });
+
+
+  renderPosts();
+
+}
+
+
+function escapeHTML(text) {
+
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+function renderPosts() {
+
+  const container =
+    document.getElementById("posts");
+
+
+  const filtered =
+    activeCategory === "Todas"
+
+      ? posts
+
+      : posts.filter(
+          post =>
+            post.category === activeCategory
+        );
+
+
+  if (!filtered.length) {
+
+    container.innerHTML = `
+      <div class="empty">
+        <h3>No hay publicaciones todavía.</h3>
+        <p>Podés ser la primera persona en compartir algo.</p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    filtered.map(post => `
+
+      <article class="post">
+
+        <div class="post-top">
+
+          <div>
+            <div class="post-author">
+              ${escapeHTML(post.author)}
+            </div>
+
+            <div class="post-date">
+              ${formatDate(post.createdAt)}
+            </div>
+          </div>
+
+        </div>
+
+
+        <span class="post-category">
+          ${escapeHTML(post.category)}
+        </span>
+
+
+        <h3>
+          ${escapeHTML(post.title)}
+        </h3>
+
+
+        <div class="post-content">
+          ${escapeHTML(post.content)}
+        </div>
+
+
+        <div class="post-actions">
+
+          <button
+            class="action-btn"
+            onclick="likePost(${post.id})"
+          >
+            ❤️ ${post.likes}
+          </button>
+
+        </div>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+renderPosts();
+
+</script>
+
+</body>
+</html>
