@@ -3,1035 +3,1004 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="La Vida Que Quiero - Creá tu camino. Construí una vida con más libertad, disciplina, salud, propósito y opciones.">
+  <meta name="description" content="La Vida Que Quiero - Creá tu camino.">
   <title>La Vida Que Quiero</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
-  <header class="topbar">
-    <a href="#inicio" class="brand" onclick="showPage('inicio')">
-      <span>LA VIDA</span> QUE QUIERO
-    </a>
-
-    <nav class="desktop-nav">
-      <button onclick="showPage('inicio')">Inicio</button>
-      <button onclick="showPage('camino')">Tu Camino</button>
-      <button onclick="showPage('areas')">Áreas</button>
-      <button onclick="showPage('biblioteca')">Biblioteca</button>
-      <button onclick="showPage('misiones')">Misiones</button>
-      <button onclick="showPage('perfil')">Perfil</button>
-    </nav>
-
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <button onclick="showPage('inicio'); toggleMobileMenu()">Inicio</button>
-    <button onclick="showPage('camino'); toggleMobileMenu()">Tu Camino</button>
-    <button onclick="showPage('areas'); toggleMobileMenu()">Áreas</button>
-    <button onclick="showPage('biblioteca'); toggleMobileMenu()">Biblioteca</button>
-    <button onclick="showPage('misiones'); toggleMobileMenu()">Misiones</button>
-    <button onclick="showPage('perfil'); toggleMobileMenu()">Perfil</button>
-  </div>
-
-
-  <!-- =========================
-       APP
-  ========================== -->
-
-  <main>
-
-    <!-- =========================
-         INICIO
-    ========================== -->
-
-    <section class="page active" id="page-inicio">
-
-      <div class="hero">
-        <div class="container hero-content">
-
-          <div class="hero-badge">
-            🛤️ CREÁ TU CAMINO
-          </div>
-
-          <h1>
-            Construí la
-            <span>vida que querés.</span>
-          </h1>
-
-          <p class="hero-text">
-            Mejorá tu cuerpo, tu mente, tus finanzas, tus relaciones,
-            tu disciplina y tu propósito.
-            Un paso a la vez.
-          </p>
-
-          <div class="hero-actions">
-            <button class="primary-btn" onclick="openOnboarding()">
-              COMENZAR MI CAMINO
-            </button>
-
-            <button class="secondary-btn" onclick="showPage('camino')">
-              VER MI CAMINO
-            </button>
-          </div>
-
-          <div class="hero-quote">
-            “Tu tiempo es tu vida. Construí una vida que valga la pena vivir.”
-          </div>
-
-        </div>
-      </div>
-
-
-      <div class="container section">
-
-        <div class="section-heading">
-          <span class="eyebrow">LA FILOSOFÍA LVQ</span>
-          <h2>No se trata solo de dinero.</h2>
-          <p>
-            El objetivo es construir capacidades que te den más opciones:
-            tiempo, salud, estabilidad, relaciones, conocimiento y libertad.
-          </p>
-        </div>
-
-        <div class="feature-grid">
-
-          <article class="feature-card">
-            <div class="feature-icon">⏰</div>
-            <h3>Tiempo</h3>
-            <p>
-              Construí una vida en la que puedas decidir mejor cómo usar tus días.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3>Dinero</h3>
-            <p>
-              Aprendé a administrar, ahorrar, invertir y construir patrimonio.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">🧠</div>
-            <h3>Mente</h3>
-            <p>
-              Aprendé a manejar pensamientos, estrés, hábitos y decisiones.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">💪</div>
-            <h3>Cuerpo</h3>
-            <p>
-              Entrená, descansá y cuidá tu salud para tener más energía.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-
-
-      <div class="container section">
-
-        <div class="daily-preview">
-
-          <div>
-            <span class="eyebrow">MISIÓN DE HOY</span>
-            <h2 id="homeMissionTitle">Tu primer paso empieza hoy.</h2>
-            <p id="homeMissionText">
-              Comenzá tu camino y elegí un objetivo para recibir tu primera misión.
-            </p>
-          </div>
-
-          <button class="primary-btn" onclick="openDailyMission()">
-            VER MISIÓN
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         TU CAMINO
-    ========================== -->
-
-    <section class="page" id="page-camino">
-
-      <div class="container section">
-
-        <div class="section-heading left">
-          <span class="eyebrow">TU CAMINO</span>
-
-          <h2 id="pathGreeting">
-            Creá tu camino.
-          </h2>
-
-          <p id="pathDescription">
-            Elegí un objetivo y empezá a construirlo paso a paso.
-          </p>
-        </div>
-
-
-        <div class="dashboard-grid">
-
-          <div class="dashboard-card large">
-            <div class="dashboard-card-top">
-              <span>🔥 Racha</span>
-              <strong id="statStreak">0</strong>
-            </div>
-
-            <div class="progress-track">
-              <div class="progress-fill" id="streakProgress"></div>
-            </div>
-
-            <small>Tu constancia importa más que la perfección.</small>
-          </div>
-
-
-          <div class="dashboard-card">
-            <span>⭐ XP</span>
-            <strong id="statXp">0</strong>
-            <small>Experiencia acumulada</small>
-          </div>
-
-
-          <div class="dashboard-card">
-            <span>🏆 Nivel</span>
-            <strong id="statLevel">1</strong>
-            <small id="statLevelName">Comienzo</small>
-          </div>
-
-
-          <div class="dashboard-card">
-            <span>✅ Misiones</span>
-            <strong id="statMissions">0</strong>
-            <small>Completadas</small>
-          </div>
-
-        </div>
-
-
-        <div class="path-panel">
-
-          <div class="path-header">
-            <div>
-              <span class="eyebrow">RECOMENDACIÓN</span>
-              <h3 id="recommendationTitle">
-                Empezá con disciplina.
-              </h3>
-            </div>
-
-            <span class="path-badge" id="recommendationBadge">
-              NIVEL 1
-            </span>
-          </div>
-
-          <p id="recommendationText">
-            La disciplina es una buena base para comenzar a construir otras áreas.
-          </p>
-
-          <button class="primary-btn" id="recommendationButton" onclick="openDisciplineChallenge()">
-            COMENZAR
-          </button>
-
-        </div>
-
-
-        <div class="timeline">
-
-          <div class="timeline-item active">
-            <div class="timeline-number">1</div>
-
-            <div>
-              <span class="eyebrow">ETAPA 1</span>
-              <h3>Construcción</h3>
-              <p>
-                Ordená tu vida, tus hábitos, tu mente y tus finanzas.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-number">2</div>
-
-            <div>
-              <span class="eyebrow">ETAPA 2</span>
-              <h3>Expansión</h3>
-              <p>
-                Mejorá tus habilidades, ingresos, relaciones y físico.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-number">3</div>
-
-            <div>
-              <span class="eyebrow">ETAPA 3</span>
-              <h3>Patrimonio</h3>
-              <p>
-                Aprendé a proteger y hacer crecer los recursos que construís.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-number">4</div>
-
-            <div>
-              <span class="eyebrow">ETAPA 4</span>
-              <h3>Libertad</h3>
-              <p>
-                Construí más opciones para decidir cómo querés vivir.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ÁREAS
-    ========================== -->
-
-    <section class="page" id="page-areas">
-
-      <div class="container section">
-
-        <div class="section-heading">
-          <span class="eyebrow">TODAS LAS ÁREAS</span>
-          <h2>Elegí dónde crecer.</h2>
-          <p>
-            No necesitás mejorar todo al mismo tiempo.
-            Elegí una cosa y avanzá.
-          </p>
-        </div>
-
-
-        <div class="area-grid">
-
-          <article class="area-card" onclick="openArea('cuerpo')">
-            <div class="area-icon">💪</div>
-            <h3>Cuerpo</h3>
-            <p>
-              Entrenamiento, alimentación, sueño y recuperación.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('mente')">
-            <div class="area-icon">🧠</div>
-            <h3>Mente y calma</h3>
-            <p>
-              Respiración, meditación, pensamientos y calma.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('disciplina')">
-            <div class="area-icon">🔥</div>
-            <h3>Disciplina</h3>
-            <p>
-              Hábitos, autocontrol, constancia y desafíos.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('finanzas')">
-            <div class="area-icon">💰</div>
-            <h3>Finanzas</h3>
-            <p>
-              Dinero, ahorro, inversión, riesgo y libertad financiera.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('negocios')">
-            <div class="area-icon">💼</div>
-            <h3>Negocios</h3>
-            <p>
-              Habilidades, ventas, emprendimiento e ingresos.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('relaciones')">
-            <div class="area-icon">❤️</div>
-            <h3>Relaciones</h3>
-            <p>
-              Comunicación, límites, vínculos y rupturas.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('proposito')">
-            <div class="area-icon">🎯</div>
-            <h3>Propósito</h3>
-            <p>
-              Valores, objetivos, dirección y visión.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-
-          <article class="area-card" onclick="openArea('imagen')">
-            <div class="area-icon">👔</div>
-            <h3>Imagen y estilo</h3>
-            <p>
-              Vestimenta, higiene, grooming y perfumes.
-            </p>
-            <span>Explorar →</span>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         BIBLIOTECA
-    ========================== -->
-
-    <section class="page" id="page-biblioteca">
-
-      <div class="container section">
-
-        <div class="section-heading">
-          <span class="eyebrow">BIBLIOTECA</span>
-          <h2>Leé. Aprendé. Aplicá.</h2>
-          <p>
-            Libros seleccionados para acompañar tu camino.
-          </p>
-        </div>
-
-
-        <div class="book-grid">
-
-          <article class="book-card">
-            <div class="book-cover">
-              <span>HÁBITOS<br>ATÓMICOS</span>
-            </div>
-
-            <span class="book-category">HÁBITOS</span>
-
-            <h3>Hábitos Atómicos</h3>
-
-            <p class="author">James Clear</p>
-
-            <p>
-              Para construir hábitos y mejorar la constancia.
-            </p>
-
-            <button onclick="openBook('habitos')">
-              Ver libro
-            </button>
-          </article>
-
-
-          <article class="book-card">
-            <div class="book-cover">
-              <span>PSICOLOGÍA<br>DEL DINERO</span>
-            </div>
-
-            <span class="book-category">DINERO</span>
-
-            <h3>La Psicología del Dinero</h3>
-
-            <p class="author">Morgan Housel</p>
-
-            <p>
-              Para entender mejor el comportamiento financiero.
-            </p>
-
-            <button onclick="openBook('dinero')">
-              Ver libro
-            </button>
-          </article>
-
-
-          <article class="book-card">
-            <div class="book-cover">
-              <span>EL HOMBRE<br>MÁS RICO</span>
-            </div>
-
-            <span class="book-category">FINANZAS</span>
-
-            <h3>El Hombre Más Rico de Babilonia</h3>
-
-            <p class="author">George S. Clason</p>
-
-            <p>
-              Principios sencillos sobre ahorro y patrimonio.
-            </p>
-
-            <button onclick="openBook('babilonia')">
-              Ver libro
-            </button>
-          </article>
-
-
-          <article class="book-card">
-            <div class="book-cover">
-              <span>PIENSE Y<br>HÁGASE RICO</span>
-            </div>
-
-            <span class="book-category">MENTALIDAD</span>
-
-            <h3>Piense y Hágase Rico</h3>
-
-            <p class="author">Napoleon Hill</p>
-
-            <p>
-              Objetivos, determinación y mentalidad.
-            </p>
-
-            <button onclick="openBook('piense')">
-              Ver libro
-            </button>
-          </article>
-
-
-          <article class="book-card">
-            <div class="book-cover">
-              <span>7<br>HÁBITOS</span>
-            </div>
-
-            <span class="book-category">EFECTIVIDAD</span>
-
-            <h3>Los 7 hábitos de la gente altamente efectiva</h3>
-
-            <p class="author">Stephen R. Covey</p>
-
-            <p>
-              Para trabajar prioridades, responsabilidad y efectividad.
-            </p>
-
-            <button onclick="openBook('7habitos')">
-              Ver libro
-            </button>
-          </article>
-
-
-          <article class="book-card">
-            <div class="book-cover">
-              <span>CÓMO GANAR<br>AMIGOS</span>
-            </div>
-
-            <span class="book-category">RELACIONES</span>
-
-            <h3>Cómo ganar amigos e influir sobre las personas</h3>
-
-            <p class="author">Dale Carnegie</p>
-
-            <p>
-              Comunicación y relaciones interpersonales.
-            </p>
-
-            <button onclick="openBook('carnegie')">
-              Ver libro
-            </button>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         MISIONES
-    ========================== -->
-
-    <section class="page" id="page-misiones">
-
-      <div class="container section">
-
-        <div class="section-heading">
-          <span class="eyebrow">MISIONES</span>
-          <h2>Un paso cada día.</h2>
-          <p>
-            No intentes cambiar toda tu vida en una semana.
-            Hacé la próxima acción correcta.
-          </p>
-        </div>
-
-
-        <div class="mission-feature">
-
-          <span class="eyebrow">MISIÓN DE HOY</span>
-
-          <h2 id="missionTitle">
-            Empezá tu camino.
-          </h2>
-
-          <p id="missionDescription">
-            Elegí una misión y completala.
-          </p>
-
-          <div class="mission-meta">
-            <span id="missionCategory">General</span>
-            <span>+100 XP</span>
-          </div>
-
-          <button class="primary-btn" id="missionButton" onclick="completeTodayMission()">
-            COMPLETAR MISIÓN
-          </button>
-
-        </div>
-
-
-        <div class="mission-list">
-
-          <article class="mini-mission">
-            <span>🔥</span>
-            <div>
-              <strong>Disciplina</strong>
-              <p>Terminá una tarea que venís postergando.</p>
-            </div>
-          </article>
-
-          <article class="mini-mission">
-            <span>🧠</span>
-            <div>
-              <strong>Mente</strong>
-              <p>Tomate 5 minutos para respirar y observar tus pensamientos.</p>
-            </div>
-          </article>
-
-          <article class="mini-mission">
-            <span>💰</span>
-            <div>
-              <strong>Finanzas</strong>
-              <p>Registrá tus gastos del día.</p>
-            </div>
-          </article>
-
-          <article class="mini-mission">
-            <span>💪</span>
-            <div>
-              <strong>Cuerpo</strong>
-              <p>Hacé 30 minutos de actividad física.</p>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PERFIL
-    ========================== -->
-
-    <section class="page" id="page-perfil">
-
-      <div class="container section">
-
-        <div class="section-heading left">
-          <span class="eyebrow">TU PERFIL</span>
-          <h2 id="profileTitle">Tu camino empieza acá.</h2>
-          <p>
-            Por ahora tu progreso se guarda en este navegador.
-          </p>
-        </div>
-
-
-        <div class="profile-grid">
-
-          <div class="profile-card">
-
-            <div class="avatar" id="avatar">LVQ</div>
-
-            <div>
-              <h3 id="profileName">Constructor</h3>
-              <p id="profileObjective">Objetivo: Elegí tu objetivo</p>
-            </div>
-
-          </div>
-
-
-          <div class="profile-card vertical">
-
-            <span class="eyebrow">NIVEL</span>
-
-            <strong class="big-number" id="profileLevel">
-              1
-            </strong>
-
-            <p id="profileLevelName">
-              Comienzo
-            </p>
-
-          </div>
-
-
-          <div class="profile-card vertical">
-
-            <span class="eyebrow">XP</span>
-
-            <strong class="big-number" id="profileXp">
-              0
-            </strong>
-
-            <p>Experiencia</p>
-
-          </div>
-
-
-          <div class="profile-card vertical">
-
-            <span class="eyebrow">RACHA</span>
-
-            <strong class="big-number" id="profileStreak">
-              0
-            </strong>
-
-            <p>Días activos</p>
-
-          </div>
-
-        </div>
-
-
-        <div class="privacy-note">
-
-          <strong>🔒 Sobre tus datos</strong>
-
-          <p>
-            Esta versión guarda tu información localmente en tu navegador.
-            No tenemos todavía un sistema de cuentas real.
-            Más adelante incorporaremos usuarios, base de datos y sincronización.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       MODAL ONBOARDING
-  ========================== -->
-
-  <div class="modal" id="onboardingModal">
-
-    <div class="modal-box">
-
-      <button class="close-btn" onclick="closeModal('onboardingModal')">
-        ×
-      </button>
-
-
-      <div class="onboarding-step active" id="onboarding1">
-
-        <span class="eyebrow">PASO 1 DE 3</span>
-
-        <h2>¿Cómo te llamás?</h2>
-
-        <p>
-          Esto nos permite personalizar tu camino.
-        </p>
-
-        <input
-          type="text"
-          id="nameInput"
-          class="text-input"
-          placeholder="Tu nombre"
-          maxlength="30"
-        >
-
-        <button class="primary-btn full-btn" onclick="nextOnboarding(2)">
-          CONTINUAR
-        </button>
-
-      </div>
-
-
-      <div class="onboarding-step" id="onboarding2">
-
-        <span class="eyebrow">PASO 2 DE 3</span>
-
-        <h2>¿Qué querés mejorar primero?</h2>
-
-        <p>
-          No necesitás hacerlo todo al mismo tiempo.
-        </p>
-
-
-        <div class="choice-grid">
-
-          <button onclick="selectGoal(this,'Cuerpo')">💪 Cuerpo</button>
-          <button onclick="selectGoal(this,'Mente')">🧠 Mente</button>
-          <button onclick="selectGoal(this,'Disciplina')">🔥 Disciplina</button>
-          <button onclick="selectGoal(this,'Finanzas')">💰 Finanzas</button>
-          <button onclick="selectGoal(this,'Negocios')">💼 Negocios</button>
-          <button onclick="selectGoal(this,'Relaciones')">❤️ Relaciones</button>
-          <button onclick="selectGoal(this,'Propósito')">🎯 Propósito</button>
-          <button onclick="selectGoal(this,'Imagen')">👔 Imagen</button>
-
-        </div>
-
-
-        <button class="primary-btn full-btn" onclick="nextOnboarding(3)">
-          CONTINUAR
-        </button>
-
-      </div>
-
-
-      <div class="onboarding-step" id="onboarding3">
-
-        <span class="eyebrow">PASO 3 DE 3</span>
-
-        <h2>¿Cuánto tiempo tenés?</h2>
-
-        <p>
-          Elegí algo que puedas mantener.
-        </p>
-
-
-        <div class="choice-grid">
-
-          <button onclick="selectTime(this,'10 minutos')">
-            ⚡ 10 minutos
-          </button>
-
-          <button onclick="selectTime(this,'30 minutos')">
-            🔥 30 minutos
-          </button>
-
-          <button onclick="selectTime(this,'1 hora')">
-            💪 1 hora
-          </button>
-
-          <button onclick="selectTime(this,'Más de 1 hora')">
-            🚀 Más de 1 hora
-          </button>
-
-        </div>
-
-
-        <button class="primary-btn full-btn" onclick="finishOnboarding()">
-          CREAR MI CAMINO
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       MODAL ÁREA
-  ========================== -->
-
-  <div class="modal" id="areaModal">
-
-    <div class="modal-box wide">
-
-      <button class="close-btn" onclick="closeModal('areaModal')">
-        ×
-      </button>
-
-      <span class="eyebrow" id="areaEyebrow">ÁREA</span>
-
-      <h2 id="areaTitle">
-        Área
-      </h2>
-
-      <p id="areaIntro">
-        Descripción.
+<header class="topbar">
+  <a href="#" class="brand" onclick="showPage('inicio'); return false;">
+    <span>LA VIDA</span> QUE QUIERO
+  </a>
+
+  <nav class="desktop-nav">
+    <button onclick="showPage('inicio')">Inicio</button>
+    <button onclick="showPage('camino')">Tu Camino</button>
+    <button onclick="showPage('areas')">Áreas</button>
+    <button onclick="showPage('biblioteca')">Biblioteca</button>
+    <button onclick="showPage('misiones')">Misiones</button>
+    <a href="comunidad.html">Comunidad</a>
+    <button onclick="showPage('perfil')">Perfil</button>
+  </nav>
+
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button onclick="showPage('inicio'); toggleMobileMenu()">Inicio</button>
+  <button onclick="showPage('camino'); toggleMobileMenu()">Tu Camino</button>
+  <button onclick="showPage('areas'); toggleMobileMenu()">Áreas</button>
+  <button onclick="showPage('biblioteca'); toggleMobileMenu()">Biblioteca</button>
+  <button onclick="showPage('misiones'); toggleMobileMenu()">Misiones</button>
+  <a href="comunidad.html">Comunidad</a>
+  <button onclick="showPage('perfil'); toggleMobileMenu()">Perfil</button>
+</div>
+
+<main>
+
+<!-- ================= INICIO ================= -->
+
+<section class="page active" id="page-inicio">
+
+  <div class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-badge">🛤️ CREÁ TU CAMINO</div>
+
+      <h1>
+        Construí la
+        <span>vida que querés.</span>
+      </h1>
+
+      <p class="hero-text">
+        Cuerpo, mente, disciplina, dinero, relaciones,
+        propósito, imagen y crecimiento.
+        Un paso a la vez.
       </p>
 
+      <div class="hero-actions">
+        <button class="primary-btn" onclick="openOnboarding()">
+          COMENZAR MI CAMINO
+        </button>
 
-      <div class="content-blocks" id="areaContent">
+        <button class="secondary-btn" onclick="showPage('areas')">
+          EXPLORAR ÁREAS
+        </button>
       </div>
 
-    </div>
+      <p class="hero-quote">
+        Tu tiempo es tu vida. Construí una vida que valga la pena vivir.
+      </p>
 
+    </div>
   </div>
 
 
-  <!-- =========================
-       MODAL DISCIPLINA
-  ========================== -->
+  <div class="container section">
 
-  <div class="modal" id="disciplineModal">
+    <div class="section-heading">
+      <span class="eyebrow">LA FILOSOFÍA LVQ</span>
 
-    <div class="modal-box wide">
-
-      <button class="close-btn" onclick="closeModal('disciplineModal')">
-        ×
-      </button>
-
-      <span class="eyebrow">DESAFÍO</span>
-
-      <h2>🔥 7 Días de Disciplina</h2>
+      <h2>No se trata solamente de dinero.</h2>
 
       <p>
-        Pequeñas acciones. Repetidas.
-        Convertidas en identidad.
+        El objetivo es construir capacidades que te den más libertad,
+        más opciones y más control sobre tu vida.
       </p>
+    </div>
 
 
-      <div class="progress-info">
-        <span>Progreso</span>
-        <strong id="disciplineProgressText">0 / 7</strong>
-      </div>
+    <div class="feature-grid">
 
-      <div class="progress-track">
-        <div class="progress-fill" id="disciplineProgress"></div>
-      </div>
-
-
-      <div id="disciplineDays"></div>
-
-
-      <div class="success-box" id="disciplineSuccess">
-        <div class="success-icon">🏆</div>
-        <h3>Desafío completado</h3>
+      <article class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h3>Tiempo</h3>
         <p>
-          Completaste los 7 días.
-          Tu próxima etapa empieza ahora.
+          Construí una vida donde puedas decidir mejor cómo usar tus días.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Dinero</h3>
+        <p>
+          Aprendé a administrar, ahorrar, invertir y construir patrimonio.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Mente</h3>
+        <p>
+          Aprendé a manejar pensamientos, estrés y emociones.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">💪</div>
+        <h3>Cuerpo</h3>
+        <p>
+          Entrená, descansá y cuidá tu energía.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+
+  <div class="container section">
+
+    <div class="daily-preview">
+
+      <div>
+        <span class="eyebrow">MISIÓN DE HOY</span>
+        <h2 id="homeMissionTitle">Empezá tu camino.</h2>
+        <p id="homeMissionText">
+          Elegí un objetivo y recibí tu próxima acción.
         </p>
       </div>
 
-
-      <button class="secondary-btn full-btn" onclick="resetDiscipline()">
-        Reiniciar desafío
+      <button class="primary-btn" onclick="openDailyMission()">
+        VER MISIÓN
       </button>
 
     </div>
 
   </div>
 
+</section>
 
-  <!-- =========================
-       MODAL LIBRO
-  ========================== -->
 
-  <div class="modal" id="bookModal">
+<!-- ================= CAMINO ================= -->
 
-    <div class="modal-box">
+<section class="page" id="page-camino">
 
-      <button class="close-btn" onclick="closeModal('bookModal')">
-        ×
-      </button>
+  <div class="container section">
 
-      <span class="eyebrow" id="bookCategory">
-        LIBRO
-      </span>
+    <div class="section-heading left">
 
-      <h2 id="bookTitle">
-        Libro
-      </h2>
+      <span class="eyebrow">TU CAMINO</span>
 
-      <p class="book-author-modal" id="bookAuthor">
-        Autor
+      <h2 id="pathGreeting">Creá tu camino.</h2>
+
+      <p id="pathDescription">
+        Elegí un objetivo y empezá a avanzar.
       </p>
 
-      <div id="bookDescription"></div>
+    </div>
 
-      <button class="primary-btn full-btn" id="bookActionButton">
-        MARCAR COMO LEÍDO
-      </button>
+
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card large">
+        <span>🔥 Actividad</span>
+
+        <strong id="statStreak">0</strong>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="streakProgress"></div>
+        </div>
+
+        <small>Días con acciones completadas.</small>
+      </div>
+
+      <div class="dashboard-card">
+        <span>⭐ XP</span>
+        <strong id="statXp">0</strong>
+        <small>Experiencia</small>
+      </div>
+
+      <div class="dashboard-card">
+        <span>🏆 Nivel</span>
+        <strong id="statLevel">1</strong>
+        <small id="statLevelName">Comienzo</small>
+      </div>
+
+      <div class="dashboard-card">
+        <span>✅ Acciones</span>
+        <strong id="statMissions">0</strong>
+        <small>Completadas</small>
+      </div>
 
     </div>
 
-  </div>
 
+    <div class="path-panel">
 
-  <!-- =========================
-       MODAL MISIÓN
-  ========================== -->
+      <div class="path-header">
 
-  <div class="modal" id="missionModal">
+        <div>
+          <span class="eyebrow">PRÓXIMO PASO</span>
 
-    <div class="modal-box">
+          <h3 id="recommendationTitle">
+            Empezá con disciplina.
+          </h3>
+        </div>
 
-      <button class="close-btn" onclick="closeModal('missionModal')">
-        ×
-      </button>
+        <span class="path-badge" id="recommendationBadge">
+          LVQ
+        </span>
 
-      <span class="eyebrow">
-        MISIÓN
-      </span>
+      </div>
 
-      <h2 id="modalMissionTitle">
-        Misión
-      </h2>
-
-      <p id="modalMissionText">
-        ...
+      <p id="recommendationText">
+        Tu próximo paso aparecerá acá.
       </p>
 
-      <button class="primary-btn full-btn" onclick="completeTodayMission(true)">
-        COMPLETAR +100 XP
+      <button
+        class="primary-btn"
+        id="recommendationButton"
+        onclick="startRecommendedAction()"
+      >
+        COMENZAR
       </button>
+
+    </div>
+
+
+    <div class="timeline">
+
+      <article class="timeline-item active">
+        <div class="timeline-number">1</div>
+        <div>
+          <span class="eyebrow">ETAPA 1</span>
+          <h3>Ordenar</h3>
+          <p>
+            Hábitos, mente, cuerpo y finanzas básicas.
+          </p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-number">2</div>
+        <div>
+          <span class="eyebrow">ETAPA 2</span>
+          <h3>Construir</h3>
+          <p>
+            Habilidades, ingresos, relaciones y físico.
+          </p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-number">3</div>
+        <div>
+          <span class="eyebrow">ETAPA 3</span>
+          <h3>Crecer</h3>
+          <p>
+            Patrimonio, conocimiento, carácter y propósito.
+          </p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-number">4</div>
+        <div>
+          <span class="eyebrow">ETAPA 4</span>
+          <h3>Libertad</h3>
+          <p>
+            Más opciones sobre tu tiempo y tu vida.
+          </p>
+        </div>
+      </article>
 
     </div>
 
   </div>
 
+</section>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
 
-  <footer>
+<!-- ================= AREAS ================= -->
 
-    <div class="container footer-content">
+<section class="page" id="page-areas">
 
-      <strong>
-        LA VIDA QUE QUIERO
-      </strong>
+  <div class="container section">
+
+    <div class="section-heading">
+
+      <span class="eyebrow">ÁREAS DE LVQ</span>
+
+      <h2>Elegí dónde crecer.</h2>
 
       <p>
-        Creá tu camino.
-        Construí tu libertad.
+        Ahora cada área tiene contenido y acciones propias.
       </p>
-
-      <small>
-        © 2026 LVQ
-      </small>
 
     </div>
 
-  </footer>
+
+    <div class="area-grid">
+
+      <article class="area-card" onclick="openArea('cuerpo')">
+        <div class="area-icon">💪</div>
+        <h3>Cuerpo</h3>
+        <p>Entrenamiento, alimentación, sueño y recuperación.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('mente')">
+        <div class="area-icon">🧠</div>
+        <h3>Mente y calma</h3>
+        <p>Respiración, meditación, pensamientos y calma.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('disciplina')">
+        <div class="area-icon">🔥</div>
+        <h3>Disciplina</h3>
+        <p>Hábitos, constancia y desafío de 7 días.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('finanzas')">
+        <div class="area-icon">💰</div>
+        <h3>Finanzas</h3>
+        <p>Ahorro, inversión, riesgo y libertad financiera.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('negocios')">
+        <div class="area-icon">💼</div>
+        <h3>Negocios</h3>
+        <p>Habilidades, ingresos, ventas y oportunidades.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('relaciones')">
+        <div class="area-icon">❤️</div>
+        <h3>Relaciones</h3>
+        <p>Vínculos, límites, comunicación y rupturas.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('proposito')">
+        <div class="area-icon">🎯</div>
+        <h3>Propósito</h3>
+        <p>Valores, visión y objetivos personales.</p>
+        <span>Entrar →</span>
+      </article>
+
+      <article class="area-card" onclick="openArea('imagen')">
+        <div class="area-icon">👔</div>
+        <h3>Imagen y estilo</h3>
+        <p>Vestimenta, higiene, grooming y perfumes.</p>
+        <span>Entrar →</span>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
 
 
-  <script src="app.js"></script>
+<!-- ================= BIBLIOTECA ================= -->
+
+<section class="page" id="page-biblioteca">
+
+  <div class="container section">
+
+    <div class="section-heading">
+
+      <span class="eyebrow">BIBLIOTECA</span>
+
+      <h2>Leé. Aprendé. Aplicá.</h2>
+
+      <p>
+        Libros para acompañar tu camino.
+      </p>
+
+    </div>
+
+
+    <div class="book-grid">
+
+      <article class="book-card">
+        <div class="book-cover"><span>HÁBITOS<br>ATÓMICOS</span></div>
+        <span class="book-category">HÁBITOS</span>
+        <h3>Hábitos Atómicos</h3>
+        <p class="author">James Clear</p>
+        <button onclick="openBook('habitos')">Ver libro</button>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover"><span>PSICOLOGÍA<br>DEL DINERO</span></div>
+        <span class="book-category">DINERO</span>
+        <h3>La Psicología del Dinero</h3>
+        <p class="author">Morgan Housel</p>
+        <button onclick="openBook('dinero')">Ver libro</button>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover"><span>HOMBRE MÁS<br>RICO</span></div>
+        <span class="book-category">FINANZAS</span>
+        <h3>El Hombre Más Rico de Babilonia</h3>
+        <p class="author">George S. Clason</p>
+        <button onclick="openBook('babilonia')">Ver libro</button>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover"><span>PIENSE Y<br>HÁGASE RICO</span></div>
+        <span class="book-category">MENTALIDAD</span>
+        <h3>Piense y Hágase Rico</h3>
+        <p class="author">Napoleon Hill</p>
+        <button onclick="openBook('piense')">Ver libro</button>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover"><span>7<br>HÁBITOS</span></div>
+        <span class="book-category">EFECTIVIDAD</span>
+        <h3>Los 7 hábitos de la gente altamente efectiva</h3>
+        <p class="author">Stephen R. Covey</p>
+        <button onclick="openBook('7habitos')">Ver libro</button>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover"><span>CÓMO GANAR<br>AMIGOS</span></div>
+        <span class="book-category">RELACIONES</span>
+        <h3>Cómo ganar amigos e influir sobre las personas</h3>
+        <p class="author">Dale Carnegie</p>
+        <button onclick="openBook('carnegie')">Ver libro</button>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MISIONES ================= -->
+
+<section class="page" id="page-misiones">
+
+  <div class="container section">
+
+    <div class="section-heading">
+
+      <span class="eyebrow">MISIONES</span>
+
+      <h2>Un paso cada día.</h2>
+
+      <p>
+        Elegí una acción concreta y hacela.
+      </p>
+
+    </div>
+
+
+    <div class="mission-feature">
+
+      <span class="eyebrow">MISIÓN DE HOY</span>
+
+      <h2 id="missionTitle">Tu misión.</h2>
+
+      <p id="missionDescription">
+        Tu misión aparecerá acá.
+      </p>
+
+      <div class="mission-meta">
+        <span id="missionCategory">General</span>
+        <span>+100 XP</span>
+      </div>
+
+      <button
+        class="primary-btn"
+        id="missionButton"
+        onclick="completeTodayMission()"
+      >
+        COMPLETAR MISIÓN
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PERFIL ================= -->
+
+<section class="page" id="page-perfil">
+
+  <div class="container section">
+
+    <div class="section-heading left">
+
+      <span class="eyebrow">TU PERFIL</span>
+
+      <h2 id="profileTitle">Tu progreso.</h2>
+
+      <p>
+        En esta versión tus datos se guardan en el navegador.
+      </p>
+
+    </div>
+
+
+    <div class="profile-grid">
+
+      <div class="profile-card">
+        <div class="avatar" id="avatar">LVQ</div>
+
+        <div>
+          <h3 id="profileName">Constructor</h3>
+          <p id="profileObjective">
+            Objetivo: Elegí uno para comenzar.
+          </p>
+        </div>
+      </div>
+
+      <div class="profile-card vertical">
+        <span class="eyebrow">NIVEL</span>
+        <strong class="big-number" id="profileLevel">1</strong>
+        <p id="profileLevelName">Comienzo</p>
+      </div>
+
+      <div class="profile-card vertical">
+        <span class="eyebrow">XP</span>
+        <strong class="big-number" id="profileXp">0</strong>
+        <p>Experiencia</p>
+      </div>
+
+      <div class="profile-card vertical">
+        <span class="eyebrow">ACCIONES</span>
+        <strong class="big-number" id="profileActions">0</strong>
+        <p>Completadas</p>
+      </div>
+
+    </div>
+
+
+    <div class="privacy-note">
+
+      <strong>🔒 Datos de esta versión</strong>
+
+      <p>
+        Se guardan localmente en tu navegador.
+        Más adelante conectaremos cuentas, base de datos y sincronización.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= ONBOARDING ================= -->
+
+<div class="modal" id="onboardingModal">
+
+  <div class="modal-box">
+
+    <button class="close-btn" onclick="closeModal('onboardingModal')">×</button>
+
+
+    <div class="onboarding-step active" id="onboarding1">
+
+      <span class="eyebrow">PASO 1 DE 3</span>
+
+      <h2>¿Cómo te llamás?</h2>
+
+      <p>Vamos a personalizar tu camino.</p>
+
+      <input
+        class="text-input"
+        id="nameInput"
+        maxlength="30"
+        placeholder="Tu nombre"
+      >
+
+      <button
+        class="primary-btn full-btn"
+        onclick="nextOnboarding(2)"
+      >
+        CONTINUAR
+      </button>
+
+    </div>
+
+
+    <div class="onboarding-step" id="onboarding2">
+
+      <span class="eyebrow">PASO 2 DE 3</span>
+
+      <h2>¿Qué querés mejorar primero?</h2>
+
+      <div class="choice-grid">
+
+        <button onclick="selectGoal(this,'Cuerpo')">💪 Cuerpo</button>
+        <button onclick="selectGoal(this,'Mente')">🧠 Mente</button>
+        <button onclick="selectGoal(this,'Disciplina')">🔥 Disciplina</button>
+        <button onclick="selectGoal(this,'Finanzas')">💰 Finanzas</button>
+        <button onclick="selectGoal(this,'Negocios')">💼 Negocios</button>
+        <button onclick="selectGoal(this,'Relaciones')">❤️ Relaciones</button>
+        <button onclick="selectGoal(this,'Propósito')">🎯 Propósito</button>
+        <button onclick="selectGoal(this,'Imagen')">👔 Imagen</button>
+
+      </div>
+
+      <button
+        class="primary-btn full-btn"
+        onclick="nextOnboarding(3)"
+      >
+        CONTINUAR
+      </button>
+
+    </div>
+
+
+    <div class="onboarding-step" id="onboarding3">
+
+      <span class="eyebrow">PASO 3 DE 3</span>
+
+      <h2>¿Cuánto tiempo tenés?</h2>
+
+      <div class="choice-grid">
+
+        <button onclick="selectTime(this,'10 minutos')">⚡ 10 minutos</button>
+        <button onclick="selectTime(this,'30 minutos')">🔥 30 minutos</button>
+        <button onclick="selectTime(this,'1 hora')">💪 1 hora</button>
+        <button onclick="selectTime(this,'Más de 1 hora')">🚀 Más de 1 hora</button>
+
+      </div>
+
+      <button
+        class="primary-btn full-btn"
+        onclick="finishOnboarding()"
+      >
+        CREAR MI CAMINO
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= AREA MODAL ================= -->
+
+<div class="modal" id="areaModal">
+
+  <div class="modal-box wide">
+
+    <button class="close-btn" onclick="closeModal('areaModal')">×</button>
+
+    <span class="eyebrow" id="areaEyebrow">ÁREA</span>
+
+    <h2 id="areaTitle">Área</h2>
+
+    <p id="areaIntro">Descripción.</p>
+
+    <div id="areaContent" class="content-blocks"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= DISCIPLINA ================= -->
+
+<div class="modal" id="disciplineModal">
+
+  <div class="modal-box wide">
+
+    <button class="close-btn" onclick="closeModal('disciplineModal')">×</button>
+
+    <span class="eyebrow">DESAFÍO</span>
+
+    <h2>🔥 7 Días de Disciplina</h2>
+
+    <p>
+      Una misión pequeña cada día.
+    </p>
+
+    <div class="progress-info">
+      <span>Progreso</span>
+      <strong id="disciplineProgressText">0 / 7</strong>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="disciplineProgress"></div>
+    </div>
+
+    <div id="disciplineDays"></div>
+
+    <div class="success-box" id="disciplineSuccess">
+      <div class="success-icon">🏆</div>
+      <h3>Desafío completado</h3>
+      <p>
+        Completaste los 7 días.
+      </p>
+    </div>
+
+    <button class="secondary-btn full-btn" onclick="resetDiscipline()">
+      Reiniciar desafío
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= LIBRO ================= -->
+
+<div class="modal" id="bookModal">
+
+  <div class="modal-box">
+
+    <button class="close-btn" onclick="closeModal('bookModal')">×</button>
+
+    <span class="eyebrow" id="bookCategory">LIBRO</span>
+
+    <h2 id="bookTitle">Libro</h2>
+
+    <p class="book-author-modal" id="bookAuthor">Autor</p>
+
+    <div id="bookDescription"></div>
+
+    <button
+      class="primary-btn full-btn"
+      id="bookActionButton"
+    >
+      MARCAR COMO LEÍDO
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MISION ================= -->
+
+<div class="modal" id="missionModal">
+
+  <div class="modal-box">
+
+    <button class="close-btn" onclick="closeModal('missionModal')">×</button>
+
+    <span class="eyebrow">MISIÓN</span>
+
+    <h2 id="modalMissionTitle">Misión</h2>
+
+    <p id="modalMissionText">...</p>
+
+    <button
+      class="primary-btn full-btn"
+      onclick="completeTodayMission(true)"
+    >
+      COMPLETAR +100 XP
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= FINANZAS CALCULATOR ================= -->
+
+<div class="modal" id="financeModal">
+
+  <div class="modal-box">
+
+    <button class="close-btn" onclick="closeModal('financeModal')">×</button>
+
+    <span class="eyebrow">FINANZAS</span>
+
+    <h2>💰 Tu punto de partida</h2>
+
+    <p>
+      Usá esta herramienta como simulación educativa.
+    </p>
+
+    <div class="form-grid">
+
+      <div>
+        <label>Ingresos mensuales</label>
+        <input type="number" id="financeIncome" placeholder="1500000">
+      </div>
+
+      <div>
+        <label>Gastos mensuales</label>
+        <input type="number" id="financeExpenses" placeholder="1000000">
+      </div>
+
+      <div>
+        <label>Patrimonio actual</label>
+        <input type="number" id="financeAssets" placeholder="0">
+      </div>
+
+      <div>
+        <label>Meta de patrimonio</label>
+        <input type="number" id="financeTarget" placeholder="25000000">
+      </div>
+
+    </div>
+
+    <button class="primary-btn full-btn" onclick="calculateFinance()">
+      CALCULAR
+    </button>
+
+    <div id="financeResult" class="result-box"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MENTE ================= -->
+
+<div class="modal" id="mindModal">
+
+  <div class="modal-box">
+
+    <button class="close-btn" onclick="closeModal('mindModal')">×</button>
+
+    <span class="eyebrow">MENTE Y CALMA</span>
+
+    <h2>🧠 Respiración de 2 minutos</h2>
+
+    <p>
+      Inspirá suavemente durante 4 segundos y exhalá durante 6.
+      No fuerces la respiración.
+    </p>
+
+    <div class="breathing-circle" id="breathingCircle">
+      <span id="breathingText">Listo</span>
+    </div>
+
+    <div class="timer-large" id="breathingTimer">02:00</div>
+
+    <div class="modal-actions">
+
+      <button class="primary-btn" id="breathingStartBtn" onclick="startBreathing()">
+        EMPEZAR
+      </button>
+
+      <button class="secondary-btn" onclick="stopBreathing()">
+        DETENER
+      </button>
+
+    </div>
+
+    <div class="content-block">
+      <h3>🧘 Mini meditación</h3>
+      <p>
+        Durante 5 minutos observá tu respiración.
+        Cuando aparezca un pensamiento, reconocelo y volvé suavemente
+        a la respiración.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= PROPOSITO ================= -->
+
+<div class="modal" id="purposeModal">
+
+  <div class="modal-box">
+
+    <button class="close-btn" onclick="closeModal('purposeModal')">×</button>
+
+    <span class="eyebrow">PROPÓSITO</span>
+
+    <h2>🎯 Construí tu dirección</h2>
+
+    <p>
+      Elegí valores que querés representar y definí un objetivo de 90 días.
+    </p>
+
+    <div class="value-grid">
+
+      <button onclick="toggleValue(this,'Disciplina')">🔥 Disciplina</button>
+      <button onclick="toggleValue(this,'Honestidad')">🤝 Honestidad</button>
+      <button onclick="toggleValue(this,'Valentía')">🦁 Valentía</button>
+      <button onclick="toggleValue(this,'Responsabilidad')">🎯 Responsabilidad</button>
+      <button onclick="toggleValue(this,'Respeto')">❤️ Respeto</button>
+      <button onclick="toggleValue(this,'Libertad')">🕊️ Libertad</button>
+
+    </div>
+
+    <label>Mi objetivo de 90 días</label>
+
+    <textarea id="purposeGoal" placeholder="Ej: ahorrar X, terminar un curso, mejorar mi físico..."></textarea>
+
+    <button class="primary-btn full-btn" onclick="savePurpose()">
+      GUARDAR MI OBJETIVO
+    </button>
+
+    <div id="purposeSaved" class="success-box"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= RELACIONES ================= -->
+
+<div class="modal" id="relationsModal">
+
+  <div class="modal-box wide">
+
+    <button class="close-btn" onclick="closeModal('relationsModal')">×</button>
+
+    <span class="eyebrow">RELACIONES</span>
+
+    <h2>❤️ Relaciones y límites</h2>
+
+    <div class="content-blocks">
+
+      <div class="content-block">
+        <h3>✅ Relaciones saludables</h3>
+        <p>
+          Respeto, comunicación, reciprocidad, confianza y espacio personal.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h3>⚠️ Señales de alerta</h3>
+        <p>
+          Control excesivo, chantaje emocional, aislamiento, humillaciones
+          y patrones repetidos de manipulación.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h3>🧠 Sobre narcisismo</h3>
+        <p>
+          Podemos aprender sobre rasgos y patrones de comportamiento,
+          pero una plataforma no puede diagnosticar a otra persona.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h3>💔 Después de una ruptura</h3>
+        <p>
+          Volvé a tus rutinas, cuidá tus vínculos, procesá lo ocurrido,
+          poné límites y reconstruí proyectos propios.
+        </p>
+      </div>
+
+    </div>
+
+    <button class="primary-btn full-btn" onclick="completeSimpleAction('relaciones')">
+      COMPLETÉ ESTA LECCIÓN +50 XP
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container footer-content">
+
+    <strong>LA VIDA QUE QUIERO</strong>
+
+    <p>Creá tu camino. Construí tu libertad.</p>
+
+    <small>© 2026 LVQ</small>
+
+  </div>
+
+</footer>
+
+
+<script src="app.js"></script>
 
 </body>
 </html>
