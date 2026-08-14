@@ -1,2871 +1,1037 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>La Vida Que Quiero</title>
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#080808;
-    color:#fff;
-    line-height:1.5;
-}
-
-button{
-    font-family:inherit;
-}
-
-
-/* =========================
-   VARIABLES
-========================= */
-
-:root{
-
-    --gold:#d4af37;
-
-    --gold-light:#f0cf63;
-
-    --dark:#080808;
-
-    --card:#121212;
-
-    --card-light:#181818;
-
-    --border:#292929;
-
-    --text:#ffffff;
-
-    --muted:#8e8e8e;
-
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    z-index:100;
-
-    padding:18px 6%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    background:rgba(8,8,8,.9);
-
-    backdrop-filter:blur(15px);
-
-    border-bottom:1px solid #222;
-
-}
-
-.logo{
-
-    font-size:20px;
-
-    font-weight:900;
-
-    letter-spacing:1px;
-
-}
-
-.logo span{
-
-    color:var(--gold);
-
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:120px 20px 80px;
-
-    background:
-
-    radial-gradient(
-
-        circle at 50% 40%,
-
-        #211b0b 0%,
-
-        #080808 55%
-
-    );
-
-}
-
-.hero-content{
-
-    max-width:950px;
-
-}
-
-.badge{
-
-    display:inline-block;
-
-    padding:8px 15px;
-
-    border:1px solid #4d411d;
-
-    border-radius:30px;
-
-    color:var(--gold-light);
-
-    font-size:13px;
-
-    margin-bottom:25px;
-
-    background:#151208;
-
-}
-
-.hero h1{
-
-    font-size:clamp(48px,8vw,95px);
-
-    line-height:.95;
-
-    margin-bottom:30px;
-
-}
-
-.hero h1 span{
-
-    color:var(--gold);
-
-}
-
-.hero p{
-
-    color:var(--muted);
-
-    font-size:20px;
-
-    max-width:700px;
-
-    margin:0 auto 40px;
-
-}
-
-.primary-btn{
-
-    border:none;
-
-    padding:17px 35px;
-
-    background:var(--gold);
-
-    color:#000;
-
-    border-radius:10px;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.primary-btn:hover{
-
-    transform:translateY(-3px);
-
-    background:var(--gold-light);
-
-    box-shadow:
-
-    0 15px 35px rgba(212,175,55,.2);
-
-}
-
-
-/* =========================
-   SECTION
-========================= */
-
-section.content{
-
-    padding:100px 6%;
-
-}
-
-.section-title{
-
-    font-size:42px;
-
-    text-align:center;
-
-    margin-bottom:12px;
-
-}
-
-.section-description{
-
-    text-align:center;
-
-    color:var(--muted);
-
-    max-width:650px;
-
-    margin:0 auto 50px;
-
-}
-
-
-/* =========================
-   DASHBOARD
-========================= */
-
-.dashboard{
-
-    max-width:1200px;
-
-    margin:auto;
-
-}
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(200px,1fr));
-
-    gap:18px;
-
-    margin-bottom:40px;
-
-}
-
-.stat{
-
-    background:linear-gradient(
-
-        145deg,
-
-        #181818,
-
-        #101010
-
-    );
-
-    border:1px solid var(--border);
-
-    border-radius:16px;
-
-    padding:25px;
-
-}
-
-.stat-icon{
-
-    font-size:28px;
-
-    margin-bottom:10px;
-
-}
-
-.stat-value{
-
-    font-size:32px;
-
-    font-weight:900;
-
-    color:var(--gold);
-
-}
-
-.stat-label{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-}
-
-
-/* =========================
-   AREAS
-========================= */
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(230px,1fr));
-
-    gap:20px;
-
-}
-
-.card{
-
-    background:
-
-    linear-gradient(
-
-        145deg,
-
-        #181818,
-
-        #101010
-
-    );
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:30px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.card:hover{
-
-    transform:translateY(-7px);
-
-    border-color:var(--gold);
-
-    box-shadow:
-
-    0 20px 50px rgba(0,0,0,.5);
-
-}
-
-.card-icon{
-
-    font-size:42px;
-
-    margin-bottom:18px;
-
-}
-
-.card h3{
-
-    font-size:22px;
-
-    margin-bottom:8px;
-
-}
-
-.card p{
-
-    color:var(--muted);
-
-}
-
-
-/* =========================
-   BOOKS
-========================= */
-
-.books{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(240px,1fr));
-
-    gap:20px;
-
-}
-
-.book{
-
-    background:#131313;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:25px;
-
-    transition:.3s;
-
-}
-
-.book:hover{
-
-    border-color:var(--gold);
-
-    transform:translateY(-5px);
-
-}
-
-.book-cover{
-
-    height:180px;
-
-    border-radius:10px;
-
-    background:
-
-    linear-gradient(
-
-        135deg,
-
-        #252525,
-
-        #101010
-
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:20px;
-
-    margin-bottom:20px;
-
-}
-
-.book-cover strong{
-
-    font-size:20px;
-
-}
-
-.book-category{
-
-    color:var(--gold);
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    text-transform:uppercase;
-
-    margin-bottom:8px;
-
-}
-
-.book h3{
-
-    font-size:20px;
-
-    margin-bottom:6px;
-
-}
-
-.book-author{
-
-    color:#777;
-
-    margin-bottom:15px;
-
-}
-
-.book button{
-
-    width:100%;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    border:1px solid #444;
-
-    background:#202020;
-
-    color:white;
-
-    cursor:pointer;
-
-}
-
-.book button:hover{
-
-    border-color:var(--gold);
-
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:1000;
-
-    background:rgba(0,0,0,.85);
-
-    backdrop-filter:blur(10px);
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-}
-
-.modal.active{
-
-    display:flex;
-
-}
-
-.modal-box{
-
-    width:100%;
-
-    max-width:700px;
-
-    max-height:90vh;
-
-    overflow-y:auto;
-
-    background:#111;
-
-    border:1px solid #333;
-
-    border-radius:22px;
-
-    padding:32px;
-
-    position:relative;
-
-}
-
-.close{
-
-    position:absolute;
-
-    top:15px;
-
-    right:20px;
-
-    background:none;
-
-    border:none;
-
-    color:#777;
-
-    font-size:30px;
-
-    cursor:pointer;
-
-}
-
-.close:hover{
-
-    color:#fff;
-
-}
-
-.modal-title{
-
-    font-size:32px;
-
-    margin-bottom:10px;
-
-}
-
-.modal-description{
-
-    color:#999;
-
-    margin-bottom:25px;
-
-}
-
-
-/* =========================
-   ONBOARDING
-========================= */
-
-.step{
-
-    display:none;
-
-}
-
-.step.active{
-
-    display:block;
-
-}
-
-.choice-grid{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(2,1fr);
-
-    gap:12px;
-
-    margin:25px 0;
-
-}
-
-.choice{
-
-    padding:18px;
-
-    border:1px solid #333;
-
-    border-radius:10px;
-
-    background:#181818;
-
-    color:white;
-
-    cursor:pointer;
-
-    text-align:left;
-
-}
-
-.choice:hover{
-
-    border-color:var(--gold);
-
-}
-
-.choice.selected{
-
-    border-color:var(--gold);
-
-    background:#211c0d;
-
-}
-
-.next-btn{
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:9px;
-
-    background:var(--gold);
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-
-/* =========================
-   CHALLENGE
-========================= */
-
-.progress-info{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:8px;
-
-}
-
-.progress-bar{
-
-    height:12px;
-
-    width:100%;
-
-    background:#252525;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin-bottom:25px;
-
-}
-
-.progress-fill{
-
-    height:100%;
-
-    width:0%;
-
-    background:var(--gold);
-
-    transition:.5s;
-
-}
-
-.day{
-
-    background:#181818;
-
-    border:1px solid #292929;
-
-    border-radius:14px;
-
-    padding:18px;
-
-    margin-bottom:12px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    align-items:center;
-
-}
-
-.day.completed{
-
-    border-color:var(--gold);
-
-    background:#19170f;
-
-}
-
-.day-number{
-
-    color:var(--gold);
-
-    font-size:13px;
-
-    font-weight:bold;
-
-}
-
-.day h4{
-
-    margin:4px 0;
-
-}
-
-.day p{
-
-    color:#777;
-
-    font-size:14px;
-
-}
-
-.complete{
-
-    padding:10px 14px;
-
-    border:1px solid #444;
-
-    background:#222;
-
-    color:#fff;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    white-space:nowrap;
-
-}
-
-.day.completed .complete{
-
-    background:var(--gold);
-
-    color:#000;
-
-}
-
-.success{
-
-    display:none;
-
-    padding:20px;
-
-    text-align:center;
-
-    border:1px solid var(--gold);
-
-    border-radius:14px;
-
-    margin-top:20px;
-
-}
-
-.success.show{
-
-    display:block;
-
-}
-
-.success h3{
-
-    color:var(--gold);
-
-    margin-bottom:8px;
-
-}
-
-
-/* =========================
-   BOOK MODAL
-========================= */
-
-.book-info{
-
-    color:#aaa;
-
-    line-height:1.7;
-
-}
-
-.book-info strong{
-
-    color:#fff;
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    padding:50px 20px;
-
-    text-align:center;
-
-    border-top:1px solid #222;
-
-    color:#666;
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .hero h1{
-
-        font-size:50px;
-
-    }
-
-    .hero p{
-
-        font-size:17px;
-
-    }
-
-    .choice-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .day{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-    }
-
-    .complete{
-
-        width:100%;
-
-    }
-
-    .modal-box{
-
-        padding:23px;
-
-    }
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Vida Que Quiero - Creá tu camino. Construí una vida con más libertad, disciplina, salud, propósito y opciones.">
+  <title>La Vida Que Quiero</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
-<!-- HEADER -->
-
-<header>
-
-<div class="logo">
-
-LA VIDA <span>QUE QUIERO</span>
-
-</div>
-
-</header>
-
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<div class="badge">
-
-🔥 CONSTRUÍ TU MEJOR VERSIÓN
-
-</div>
-
-<h1>
-
-Construí la
-
-<span>vida que querés.</span>
-
-</h1>
-
-<p>
-
-Una plataforma para ayudarte a mejorar
-
-tu cuerpo, mente, disciplina, dinero,
-
-relaciones, educación y propósito.
-
-</p>
-
-<button
-
-class="primary-btn"
-
-onclick="abrirOnboarding()">
-
-EMPEZAR MI TRANSFORMACIÓN
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- DASHBOARD -->
-
-<section class="content">
-
-<div class="dashboard">
-
-<h2 class="section-title">
-
-Tu progreso
-
-</h2>
-
-<p class="section-description">
-
-Cada pequeño avance cuenta.
-
-Construí tu vida un día a la vez.
-
-</p>
-
-
-<div class="stats">
-
-
-<div class="stat">
-
-<div class="stat-icon">
-
-🔥
-
-</div>
-
-<div
-
-class="stat-value"
-
-id="statDias">
-
-0
-
-</div>
-
-<div class="stat-label">
-
-Días completados
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-
-⭐
-
-</div>
-
-<div
-
-class="stat-value"
-
-id="statPuntos">
-
-0
-
-</div>
-
-<div class="stat-label">
-
-Puntos
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-
-🏆
-
-</div>
-
-<div
-
-class="stat-value"
-
-id="statNivel">
-
-1
-
-</div>
-
-<div class="stat-label">
-
-Nivel
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- AREAS -->
-
-<section class="content" id="areas">
-
-<h2 class="section-title">
-
-Áreas de crecimiento
-
-</h2>
-
-<p class="section-description">
-
-No se trata de ser perfecto.
-
-Se trata de ser mejor que ayer.
-
-</p>
-
-
-<div class="grid">
-
-
-<div class="card"
-
-onclick="mostrarArea('Cuerpo')">
-
-<div class="card-icon">💪</div>
-
-<h3>Cuerpo</h3>
-
-<p>
-
-Entrenamiento, alimentación,
-
-energía y hábitos saludables.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="mostrarArea('Mentalidad')">
-
-<div class="card-icon">🧠</div>
-
-<h3>Mentalidad</h3>
-
-<p>
-
-Fortalecé tu mente,
-
-confianza y resiliencia.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="mostrarArea('Finanzas')">
-
-<div class="card-icon">💰</div>
-
-<h3>Finanzas</h3>
-
-<p>
-
-Aprendé a administrar,
-
-ahorrar e invertir.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="mostrarArea('Negocios')">
-
-<div class="card-icon">💼</div>
-
-<h3>Negocios</h3>
-
-<p>
-
-Aprendé habilidades para
-
-generar nuevas oportunidades.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="mostrarArea('Relaciones')">
-
-<div class="card-icon">❤️</div>
-
-<h3>Relaciones</h3>
-
-<p>
-
-Comunicación, vínculos
-
-y vida social.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="mostrarArea('Propósito')">
-
-<div class="card-icon">🎯</div>
-
-<h3>Propósito</h3>
-
-<p>
-
-Descubrí qué querés construir
-
-con tu vida.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="abrirDisciplina()">
-
-<div class="card-icon">🔥</div>
-
-<h3>Disciplina</h3>
-
-<p>
-
-Construí constancia y
-
-aprendé a cumplir.
-
-</p>
-
-</div>
-
-
-<div class="card"
-
-onclick="mostrarArea('Misiones')">
-
-<div class="card-icon">🚀</div>
-
-<h3>Misiones</h3>
-
-<p>
-
-Pequeños desafíos para
-
-avanzar todos los días.
-
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- BIBLIOTECA -->
-
-<section class="content">
-
-<h2 class="section-title">
-
-📚 Biblioteca
-
-</h2>
-
-<p class="section-description">
-
-Libros seleccionados para ayudarte
-
-a crecer en las áreas que importan.
-
-</p>
-
-
-<div class="books">
-
-
-<!-- HABITOS -->
-
-<div class="book">
-
-<div class="book-cover">
-
-<strong>
-
-Hábitos Atómicos
-
-</strong>
-
-</div>
-
-<div class="book-category">
-
-Hábitos · Disciplina
-
-</div>
-
-<h3>
-
-Hábitos Atómicos
-
-</h3>
-
-<div class="book-author">
-
-James Clear
-
-</div>
-
-<button
-
-onclick="abrirLibro('habitos')">
-
-Ver recomendación
-
-</button>
-
-</div>
-
-
-<!-- PSICOLOGIA -->
-
-<div class="book">
-
-<div class="book-cover">
-
-<strong>
-
-La Psicología del Dinero
-
-</strong>
-
-</div>
-
-<div class="book-category">
-
-Finanzas
-
-</div>
-
-<h3>
-
-La Psicología del Dinero
-
-</h3>
-
-<div class="book-author">
-
-Morgan Housel
-
-</div>
-
-<button
-
-onclick="abrirLibro('dinero')">
-
-Ver recomendación
-
-</button>
-
-</div>
-
-
-<!-- BABILONIA -->
-
-<div class="book">
-
-<div class="book-cover">
-
-<strong>
-
-El Hombre Más Rico
-
-de Babilonia
-
-</strong>
-
-</div>
-
-<div class="book-category">
-
-Finanzas
-
-</div>
-
-<h3>
-
-El Hombre Más Rico de Babilonia
-
-</h3>
-
-<div class="book-author">
-
-George S. Clason
-
-</div>
-
-<button
-
-onclick="abrirLibro('babilonia')">
-
-Ver recomendación
-
-</button>
-
-</div>
-
-
-<!-- PIENSE -->
-
-<div class="book">
-
-<div class="book-cover">
-
-<strong>
-
-Piense y Hágase Rico
-
-</strong>
-
-</div>
-
-<div class="book-category">
-
-Mentalidad
-
-</div>
-
-<h3>
-
-Piense y Hágase Rico
-
-</h3>
-
-<div class="book-author">
-
-Napoleon Hill
-
-</div>
-
-<button
-
-onclick="abrirLibro('piense')">
-
-Ver recomendación
-
-</button>
-
-</div>
-
-
-<!-- 7 HABITOS -->
-
-<div class="book">
-
-<div class="book-cover">
-
-<strong>
-
-Los 7 Hábitos
-
-</strong>
-
-</div>
-
-<div class="book-category">
-
-Desarrollo personal
-
-</div>
-
-<h3>
-
-Los 7 hábitos de la gente altamente efectiva
-
-</h3>
-
-<div class="book-author">
-
-Stephen R. Covey
-
-</div>
-
-<button
-
-onclick="abrirLibro('7habitos')">
-
-Ver recomendación
-
-</button>
-
-</div>
-
-
-<!-- CARNEGIE -->
-
-<div class="book">
-
-<div class="book-cover">
-
-<strong>
-
-Cómo ganar amigos
-
-</strong>
-
-</div>
-
-<div class="book-category">
-
-Relaciones
-
-</div>
-
-<h3>
-
-Cómo ganar amigos e influir sobre las personas
-
-</h3>
-
-<div class="book-author">
-
-Dale Carnegie
-
-</div>
-
-<button
-
-onclick="abrirLibro('carnegie')">
-
-Ver recomendación
-
-</button>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- ONBOARDING MODAL -->
-
-<div class="modal"
-
-id="onboardingModal">
-
-<div class="modal-box">
-
-<button class="close"
-
-onclick="cerrarModal('onboardingModal')">
-
-×
-
-</button>
-
-
-<!-- PASO 1 -->
-
-<div class="step active"
-
-id="step1">
-
-<h2 class="modal-title">
-
-🚀 Empezá tu transformación
-
-</h2>
-
-<p class="modal-description">
-
-Primero elegí el área que más querés
-
-mejorar.
-
-</p>
-
-
-<div class="choice-grid">
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Cuerpo')">
-
-💪 Cuerpo
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Mentalidad')">
-
-🧠 Mentalidad
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Finanzas')">
-
-💰 Finanzas
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Negocios')">
-
-💼 Negocios
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Relaciones')">
-
-❤️ Relaciones
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Propósito')">
-
-🎯 Propósito
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarObjetivo(this,'Disciplina')">
-
-🔥 Disciplina
-
-</button>
-
-
-</div>
-
-
-<button
-
-class="next-btn"
-
-onclick="siguientePaso(2)">
-
-CONTINUAR
-
-</button>
-
-</div>
-
-
-
-<!-- PASO 2 -->
-
-<div class="step"
-
-id="step2">
-
-<h2 class="modal-title">
-
-⏱️ ¿Cuánto tiempo tenés?
-
-</h2>
-
-<p class="modal-description">
-
-No necesitás horas.
-
-Necesitás constancia.
-
-</p>
-
-
-<div class="choice-grid">
-
-
-<button class="choice"
-
-onclick="seleccionarTiempo(this,'10 minutos')">
-
-⚡ 10 minutos
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarTiempo(this,'30 minutos')">
-
-🔥 30 minutos
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarTiempo(this,'1 hora')">
-
-💪 1 hora
-
-</button>
-
-
-<button class="choice"
-
-onclick="seleccionarTiempo(this,'Más de 1 hora')">
-
-🚀 Más de 1 hora
-
-</button>
-
-
-</div>
-
-
-<button
-
-class="next-btn"
-
-onclick="siguientePaso(3)">
-
-VER MI RECOMENDACIÓN
-
-</button>
-
-</div>
-
-
-
-<!-- PASO 3 -->
-
-<div class="step"
-
-id="step3">
-
-<h2 class="modal-title">
-
-🎯 Tu primer desafío
-
-</h2>
-
-<p class="modal-description"
-
-id="recommendation">
-
-</p>
-
-
-<div style="
-
-background:#19170f;
-
-border:1px solid #4d411d;
-
-padding:25px;
-
-border-radius:15px;
-
-margin-bottom:20px;
-
-">
-
-<h3 style="color:#d4af37;margin-bottom:10px;">
-
-🔥 7 días de disciplina
-
-</h3>
-
-<p style="color:#aaa;">
-
-La mejor forma de comenzar es
-
-demostrarte que podés cumplir
-
-pequeñas acciones todos los días.
-
-</p>
-
-</div>
-
-
-<button
-
-class="next-btn"
-
-onclick="comenzarDesafio()">
-
-COMENZAR DESAFÍO
-
-</button>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- DISCIPLINA MODAL -->
-
-<div class="modal"
-
-id="disciplinaModal">
-
-<div class="modal-box">
-
-<button class="close"
-
-onclick="cerrarModal('disciplinaModal')">
-
-×
-
-</button>
-
-
-<h2 class="modal-title">
-
-🔥 7 Días de Disciplina
-
-</h2>
-
-<p class="modal-description">
-
-No busques motivación.
-
-Construí disciplina.
-
-</p>
-
-
-<div class="progress-info">
-
-<span>
-
-Progreso
-
-</span>
-
-<span id="progressText">
-
-0 / 7
-
-</span>
-
-</div>
-
-
-<div class="progress-bar">
-
-<div class="progress-fill"
-
-id="progressFill">
-
-</div>
-
-</div>
-
-
-<div id="days">
-
-
-</div>
-
-
-<div class="success"
-
-id="successBox">
-
-<h3>
-
-🏆 ¡DESAFÍO COMPLETADO!
-
-</h3>
-
-<p>
-
-Completaste los 7 días.
-
-Acabás de demostrar que podés
-
-cumplir lo que te proponés.
-
-</p>
-
-</div>
-
-
-<button
-
-style="margin-top:20px"
-
-class="complete"
-
-onclick="reiniciarDesafio()">
-
-Reiniciar desafío
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- BOOK MODAL -->
-
-<div class="modal"
-
-id="bookModal">
-
-<div class="modal-box">
-
-<button class="close"
-
-onclick="cerrarModal('bookModal')">
-
-×
-
-</button>
-
-
-<h2 class="modal-title"
-
-id="bookTitle">
-
-</h2>
-
-
-<div class="book-info"
-
-id="bookInfo">
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- SIMPLE AREA MODAL -->
-
-<div class="modal"
-
-id="areaModal">
-
-<div class="modal-box">
-
-<button class="close"
-
-onclick="cerrarModal('areaModal')">
-
-×
-
-</button>
-
-
-<h2 class="modal-title"
-
-id="areaTitle">
-
-</h2>
-
-
-<p class="modal-description"
-
-id="areaDescription">
-
-</p>
-
-
-<div style="
-
-background:#181818;
-
-border:1px solid #292929;
-
-padding:25px;
-
-border-radius:15px;
-
-">
-
-<h3 style="margin-bottom:10px">
-
-🚀 Próximamente
-
-</h3>
-
-<p style="color:#888">
-
-Estamos construyendo los desafíos,
-
-herramientas y contenidos de esta sección.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<strong>
-
-LA VIDA QUE QUIERO
-
-</strong>
-
-<br><br>
-
-Construí un día a la vez.
-
-<br><br>
-
-© 2026
-
-</footer>
-
-
-
-<script>
-
-/* =========================
-   DATOS
-========================= */
-
-let objetivo =
-localStorage.getItem("objetivo") || "";
-
-let tiempo =
-localStorage.getItem("tiempo") || "";
-
-let progreso =
-JSON.parse(
-localStorage.getItem("disciplina")
-) || [];
-
-
-/* =========================
-   ONBOARDING
-========================= */
-
-function abrirOnboarding(){
-
-    document
-    .getElementById("onboardingModal")
-    .classList.add("active");
-
-}
-
-
-function seleccionarObjetivo(
-    elemento,
-    valor
-){
-
-    document
-    .querySelectorAll(
-        "#step1 .choice"
-    )
-    .forEach(
-        function(btn){
-
-            btn.classList.remove(
-                "selected"
-            );
-
-        }
-    );
-
-    elemento.classList.add(
-        "selected"
-    );
-
-    objetivo=valor;
-
-    localStorage.setItem(
-        "objetivo",
-        valor
-    );
-
-}
-
-
-function seleccionarTiempo(
-    elemento,
-    valor
-){
-
-    document
-    .querySelectorAll(
-        "#step2 .choice"
-    )
-    .forEach(
-        function(btn){
-
-            btn.classList.remove(
-                "selected"
-            );
-
-        }
-    );
-
-    elemento.classList.add(
-        "selected"
-    );
-
-    tiempo=valor;
-
-    localStorage.setItem(
-        "tiempo",
-        valor
-    );
-
-}
-
-
-function siguientePaso(numero){
-
-    if(numero===2 && !objetivo){
-
-        alert(
-            "Elegí primero un objetivo."
-        );
-
-        return;
-
-    }
-
-    if(numero===3 && !tiempo){
-
-        alert(
-            "Elegí cuánto tiempo podés dedicar."
-        );
-
-        return;
-
-    }
-
-
-    document
-    .querySelectorAll(".step")
-    .forEach(
-        function(step){
-
-            step.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
-
-    document
-    .getElementById(
-        "step"+numero
-    )
-    .classList.add(
-        "active"
-    );
-
-
-    if(numero===3){
-
-        document
-        .getElementById(
-            "recommendation"
-        )
-        .innerText=
-
-        "Tu objetivo principal es " +
-
-        objetivo +
-
-        " y disponés de " +
-
-        tiempo +
-
-        " al día. " +
-
-        "Empezá con un desafío pequeño " +
-
-        "y construí constancia.";
-
-    }
-
-}
-
-
-function comenzarDesafio(){
-
-    cerrarModal(
-        "onboardingModal"
-    );
-
-    abrirDisciplina();
-
-}
-
-
-/* =========================
-   MODALES
-========================= */
-
-function cerrarModal(id){
-
-    document
-    .getElementById(id)
-    .classList.remove(
-        "active"
-    );
-
-}
-
-
-function abrirDisciplina(){
-
-    document
-    .getElementById(
-        "disciplinaModal"
-    )
-    .classList.add(
-        "active"
-    );
-
-    crearDias();
-
-    actualizarProgreso();
-
-}
-
-
-/* =========================
-   DISCIPLINA
-========================= */
-
-const misiones=[
-
-"Ordená tu habitación y tendé tu cama.",
-
-"Cumplí una tarea pendiente antes de distraerte.",
-
-"Trabajá 30 minutos sin redes sociales.",
-
-"Hacé primero una tarea que venís evitando.",
-
-"Controlá una distracción que normalmente te hace perder tiempo.",
-
-"Cumplí una tarea importante aunque no tengas ganas.",
-
-"Hacé una acción que represente la persona que querés ser."
-
-];
-
-
-function crearDias(){
-
-    const container=
-    document.getElementById(
-        "days"
-    );
-
-    container.innerHTML="";
-
-
-    for(
-        let i=1;
-        i<=7;
-        i++
-    ){
-
-        const div=
-        document.createElement(
-            "div"
-        );
-
-        div.className=
-        "day";
-
-        div.id=
-        "day"+i;
-
-
-        div.innerHTML=
-
-        `
-
-        <div>
-
-        <div class="day-number">
-
-        DÍA ${i}
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="topbar">
+    <a href="#inicio" class="brand" onclick="showPage('inicio')">
+      <span>LA VIDA</span> QUE QUIERO
+    </a>
+
+    <nav class="desktop-nav">
+      <button onclick="showPage('inicio')">Inicio</button>
+      <button onclick="showPage('camino')">Tu Camino</button>
+      <button onclick="showPage('areas')">Áreas</button>
+      <button onclick="showPage('biblioteca')">Biblioteca</button>
+      <button onclick="showPage('misiones')">Misiones</button>
+      <button onclick="showPage('perfil')">Perfil</button>
+    </nav>
+
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('inicio'); toggleMobileMenu()">Inicio</button>
+    <button onclick="showPage('camino'); toggleMobileMenu()">Tu Camino</button>
+    <button onclick="showPage('areas'); toggleMobileMenu()">Áreas</button>
+    <button onclick="showPage('biblioteca'); toggleMobileMenu()">Biblioteca</button>
+    <button onclick="showPage('misiones'); toggleMobileMenu()">Misiones</button>
+    <button onclick="showPage('perfil'); toggleMobileMenu()">Perfil</button>
+  </div>
+
+
+  <!-- =========================
+       APP
+  ========================== -->
+
+  <main>
+
+    <!-- =========================
+         INICIO
+    ========================== -->
+
+    <section class="page active" id="page-inicio">
+
+      <div class="hero">
+        <div class="container hero-content">
+
+          <div class="hero-badge">
+            🛤️ CREÁ TU CAMINO
+          </div>
+
+          <h1>
+            Construí la
+            <span>vida que querés.</span>
+          </h1>
+
+          <p class="hero-text">
+            Mejorá tu cuerpo, tu mente, tus finanzas, tus relaciones,
+            tu disciplina y tu propósito.
+            Un paso a la vez.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn" onclick="openOnboarding()">
+              COMENZAR MI CAMINO
+            </button>
+
+            <button class="secondary-btn" onclick="showPage('camino')">
+              VER MI CAMINO
+            </button>
+          </div>
+
+          <div class="hero-quote">
+            “Tu tiempo es tu vida. Construí una vida que valga la pena vivir.”
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="container section">
+
+        <div class="section-heading">
+          <span class="eyebrow">LA FILOSOFÍA LVQ</span>
+          <h2>No se trata solo de dinero.</h2>
+          <p>
+            El objetivo es construir capacidades que te den más opciones:
+            tiempo, salud, estabilidad, relaciones, conocimiento y libertad.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon">⏰</div>
+            <h3>Tiempo</h3>
+            <p>
+              Construí una vida en la que puedas decidir mejor cómo usar tus días.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Dinero</h3>
+            <p>
+              Aprendé a administrar, ahorrar, invertir y construir patrimonio.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Mente</h3>
+            <p>
+              Aprendé a manejar pensamientos, estrés, hábitos y decisiones.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">💪</div>
+            <h3>Cuerpo</h3>
+            <p>
+              Entrená, descansá y cuidá tu salud para tener más energía.
+            </p>
+          </article>
 
         </div>
 
-        <h4>
+      </div>
 
-        Misión del día
 
-        </h4>
+      <div class="container section">
+
+        <div class="daily-preview">
+
+          <div>
+            <span class="eyebrow">MISIÓN DE HOY</span>
+            <h2 id="homeMissionTitle">Tu primer paso empieza hoy.</h2>
+            <p id="homeMissionText">
+              Comenzá tu camino y elegí un objetivo para recibir tu primera misión.
+            </p>
+          </div>
+
+          <button class="primary-btn" onclick="openDailyMission()">
+            VER MISIÓN
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TU CAMINO
+    ========================== -->
+
+    <section class="page" id="page-camino">
+
+      <div class="container section">
+
+        <div class="section-heading left">
+          <span class="eyebrow">TU CAMINO</span>
+
+          <h2 id="pathGreeting">
+            Creá tu camino.
+          </h2>
+
+          <p id="pathDescription">
+            Elegí un objetivo y empezá a construirlo paso a paso.
+          </p>
+        </div>
+
+
+        <div class="dashboard-grid">
+
+          <div class="dashboard-card large">
+            <div class="dashboard-card-top">
+              <span>🔥 Racha</span>
+              <strong id="statStreak">0</strong>
+            </div>
+
+            <div class="progress-track">
+              <div class="progress-fill" id="streakProgress"></div>
+            </div>
+
+            <small>Tu constancia importa más que la perfección.</small>
+          </div>
+
+
+          <div class="dashboard-card">
+            <span>⭐ XP</span>
+            <strong id="statXp">0</strong>
+            <small>Experiencia acumulada</small>
+          </div>
+
+
+          <div class="dashboard-card">
+            <span>🏆 Nivel</span>
+            <strong id="statLevel">1</strong>
+            <small id="statLevelName">Comienzo</small>
+          </div>
+
+
+          <div class="dashboard-card">
+            <span>✅ Misiones</span>
+            <strong id="statMissions">0</strong>
+            <small>Completadas</small>
+          </div>
+
+        </div>
+
+
+        <div class="path-panel">
+
+          <div class="path-header">
+            <div>
+              <span class="eyebrow">RECOMENDACIÓN</span>
+              <h3 id="recommendationTitle">
+                Empezá con disciplina.
+              </h3>
+            </div>
+
+            <span class="path-badge" id="recommendationBadge">
+              NIVEL 1
+            </span>
+          </div>
+
+          <p id="recommendationText">
+            La disciplina es una buena base para comenzar a construir otras áreas.
+          </p>
+
+          <button class="primary-btn" id="recommendationButton" onclick="openDisciplineChallenge()">
+            COMENZAR
+          </button>
+
+        </div>
+
+
+        <div class="timeline">
+
+          <div class="timeline-item active">
+            <div class="timeline-number">1</div>
+
+            <div>
+              <span class="eyebrow">ETAPA 1</span>
+              <h3>Construcción</h3>
+              <p>
+                Ordená tu vida, tus hábitos, tu mente y tus finanzas.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">2</div>
+
+            <div>
+              <span class="eyebrow">ETAPA 2</span>
+              <h3>Expansión</h3>
+              <p>
+                Mejorá tus habilidades, ingresos, relaciones y físico.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+
+            <div>
+              <span class="eyebrow">ETAPA 3</span>
+              <h3>Patrimonio</h3>
+              <p>
+                Aprendé a proteger y hacer crecer los recursos que construís.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">4</div>
+
+            <div>
+              <span class="eyebrow">ETAPA 4</span>
+              <h3>Libertad</h3>
+              <p>
+                Construí más opciones para decidir cómo querés vivir.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ÁREAS
+    ========================== -->
+
+    <section class="page" id="page-areas">
+
+      <div class="container section">
+
+        <div class="section-heading">
+          <span class="eyebrow">TODAS LAS ÁREAS</span>
+          <h2>Elegí dónde crecer.</h2>
+          <p>
+            No necesitás mejorar todo al mismo tiempo.
+            Elegí una cosa y avanzá.
+          </p>
+        </div>
+
+
+        <div class="area-grid">
+
+          <article class="area-card" onclick="openArea('cuerpo')">
+            <div class="area-icon">💪</div>
+            <h3>Cuerpo</h3>
+            <p>
+              Entrenamiento, alimentación, sueño y recuperación.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('mente')">
+            <div class="area-icon">🧠</div>
+            <h3>Mente y calma</h3>
+            <p>
+              Respiración, meditación, pensamientos y calma.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('disciplina')">
+            <div class="area-icon">🔥</div>
+            <h3>Disciplina</h3>
+            <p>
+              Hábitos, autocontrol, constancia y desafíos.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('finanzas')">
+            <div class="area-icon">💰</div>
+            <h3>Finanzas</h3>
+            <p>
+              Dinero, ahorro, inversión, riesgo y libertad financiera.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('negocios')">
+            <div class="area-icon">💼</div>
+            <h3>Negocios</h3>
+            <p>
+              Habilidades, ventas, emprendimiento e ingresos.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('relaciones')">
+            <div class="area-icon">❤️</div>
+            <h3>Relaciones</h3>
+            <p>
+              Comunicación, límites, vínculos y rupturas.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('proposito')">
+            <div class="area-icon">🎯</div>
+            <h3>Propósito</h3>
+            <p>
+              Valores, objetivos, dirección y visión.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+
+          <article class="area-card" onclick="openArea('imagen')">
+            <div class="area-icon">👔</div>
+            <h3>Imagen y estilo</h3>
+            <p>
+              Vestimenta, higiene, grooming y perfumes.
+            </p>
+            <span>Explorar →</span>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BIBLIOTECA
+    ========================== -->
+
+    <section class="page" id="page-biblioteca">
+
+      <div class="container section">
+
+        <div class="section-heading">
+          <span class="eyebrow">BIBLIOTECA</span>
+          <h2>Leé. Aprendé. Aplicá.</h2>
+          <p>
+            Libros seleccionados para acompañar tu camino.
+          </p>
+        </div>
+
+
+        <div class="book-grid">
+
+          <article class="book-card">
+            <div class="book-cover">
+              <span>HÁBITOS<br>ATÓMICOS</span>
+            </div>
+
+            <span class="book-category">HÁBITOS</span>
+
+            <h3>Hábitos Atómicos</h3>
+
+            <p class="author">James Clear</p>
+
+            <p>
+              Para construir hábitos y mejorar la constancia.
+            </p>
+
+            <button onclick="openBook('habitos')">
+              Ver libro
+            </button>
+          </article>
+
+
+          <article class="book-card">
+            <div class="book-cover">
+              <span>PSICOLOGÍA<br>DEL DINERO</span>
+            </div>
+
+            <span class="book-category">DINERO</span>
+
+            <h3>La Psicología del Dinero</h3>
+
+            <p class="author">Morgan Housel</p>
+
+            <p>
+              Para entender mejor el comportamiento financiero.
+            </p>
+
+            <button onclick="openBook('dinero')">
+              Ver libro
+            </button>
+          </article>
+
+
+          <article class="book-card">
+            <div class="book-cover">
+              <span>EL HOMBRE<br>MÁS RICO</span>
+            </div>
+
+            <span class="book-category">FINANZAS</span>
+
+            <h3>El Hombre Más Rico de Babilonia</h3>
+
+            <p class="author">George S. Clason</p>
+
+            <p>
+              Principios sencillos sobre ahorro y patrimonio.
+            </p>
+
+            <button onclick="openBook('babilonia')">
+              Ver libro
+            </button>
+          </article>
+
+
+          <article class="book-card">
+            <div class="book-cover">
+              <span>PIENSE Y<br>HÁGASE RICO</span>
+            </div>
+
+            <span class="book-category">MENTALIDAD</span>
+
+            <h3>Piense y Hágase Rico</h3>
+
+            <p class="author">Napoleon Hill</p>
+
+            <p>
+              Objetivos, determinación y mentalidad.
+            </p>
+
+            <button onclick="openBook('piense')">
+              Ver libro
+            </button>
+          </article>
+
+
+          <article class="book-card">
+            <div class="book-cover">
+              <span>7<br>HÁBITOS</span>
+            </div>
+
+            <span class="book-category">EFECTIVIDAD</span>
+
+            <h3>Los 7 hábitos de la gente altamente efectiva</h3>
+
+            <p class="author">Stephen R. Covey</p>
+
+            <p>
+              Para trabajar prioridades, responsabilidad y efectividad.
+            </p>
+
+            <button onclick="openBook('7habitos')">
+              Ver libro
+            </button>
+          </article>
+
+
+          <article class="book-card">
+            <div class="book-cover">
+              <span>CÓMO GANAR<br>AMIGOS</span>
+            </div>
+
+            <span class="book-category">RELACIONES</span>
+
+            <h3>Cómo ganar amigos e influir sobre las personas</h3>
+
+            <p class="author">Dale Carnegie</p>
+
+            <p>
+              Comunicación y relaciones interpersonales.
+            </p>
+
+            <button onclick="openBook('carnegie')">
+              Ver libro
+            </button>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MISIONES
+    ========================== -->
+
+    <section class="page" id="page-misiones">
+
+      <div class="container section">
+
+        <div class="section-heading">
+          <span class="eyebrow">MISIONES</span>
+          <h2>Un paso cada día.</h2>
+          <p>
+            No intentes cambiar toda tu vida en una semana.
+            Hacé la próxima acción correcta.
+          </p>
+        </div>
+
+
+        <div class="mission-feature">
+
+          <span class="eyebrow">MISIÓN DE HOY</span>
+
+          <h2 id="missionTitle">
+            Empezá tu camino.
+          </h2>
+
+          <p id="missionDescription">
+            Elegí una misión y completala.
+          </p>
+
+          <div class="mission-meta">
+            <span id="missionCategory">General</span>
+            <span>+100 XP</span>
+          </div>
+
+          <button class="primary-btn" id="missionButton" onclick="completeTodayMission()">
+            COMPLETAR MISIÓN
+          </button>
+
+        </div>
+
+
+        <div class="mission-list">
+
+          <article class="mini-mission">
+            <span>🔥</span>
+            <div>
+              <strong>Disciplina</strong>
+              <p>Terminá una tarea que venís postergando.</p>
+            </div>
+          </article>
+
+          <article class="mini-mission">
+            <span>🧠</span>
+            <div>
+              <strong>Mente</strong>
+              <p>Tomate 5 minutos para respirar y observar tus pensamientos.</p>
+            </div>
+          </article>
+
+          <article class="mini-mission">
+            <span>💰</span>
+            <div>
+              <strong>Finanzas</strong>
+              <p>Registrá tus gastos del día.</p>
+            </div>
+          </article>
+
+          <article class="mini-mission">
+            <span>💪</span>
+            <div>
+              <strong>Cuerpo</strong>
+              <p>Hacé 30 minutos de actividad física.</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PERFIL
+    ========================== -->
+
+    <section class="page" id="page-perfil">
+
+      <div class="container section">
+
+        <div class="section-heading left">
+          <span class="eyebrow">TU PERFIL</span>
+          <h2 id="profileTitle">Tu camino empieza acá.</h2>
+          <p>
+            Por ahora tu progreso se guarda en este navegador.
+          </p>
+        </div>
+
+
+        <div class="profile-grid">
+
+          <div class="profile-card">
+
+            <div class="avatar" id="avatar">LVQ</div>
+
+            <div>
+              <h3 id="profileName">Constructor</h3>
+              <p id="profileObjective">Objetivo: Elegí tu objetivo</p>
+            </div>
+
+          </div>
+
+
+          <div class="profile-card vertical">
+
+            <span class="eyebrow">NIVEL</span>
+
+            <strong class="big-number" id="profileLevel">
+              1
+            </strong>
+
+            <p id="profileLevelName">
+              Comienzo
+            </p>
+
+          </div>
+
+
+          <div class="profile-card vertical">
+
+            <span class="eyebrow">XP</span>
+
+            <strong class="big-number" id="profileXp">
+              0
+            </strong>
+
+            <p>Experiencia</p>
+
+          </div>
+
+
+          <div class="profile-card vertical">
+
+            <span class="eyebrow">RACHA</span>
+
+            <strong class="big-number" id="profileStreak">
+              0
+            </strong>
+
+            <p>Días activos</p>
+
+          </div>
+
+        </div>
+
+
+        <div class="privacy-note">
+
+          <strong>🔒 Sobre tus datos</strong>
+
+          <p>
+            Esta versión guarda tu información localmente en tu navegador.
+            No tenemos todavía un sistema de cuentas real.
+            Más adelante incorporaremos usuarios, base de datos y sincronización.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       MODAL ONBOARDING
+  ========================== -->
+
+  <div class="modal" id="onboardingModal">
+
+    <div class="modal-box">
+
+      <button class="close-btn" onclick="closeModal('onboardingModal')">
+        ×
+      </button>
+
+
+      <div class="onboarding-step active" id="onboarding1">
+
+        <span class="eyebrow">PASO 1 DE 3</span>
+
+        <h2>¿Cómo te llamás?</h2>
 
         <p>
-
-        ${misiones[i-1]}
-
+          Esto nos permite personalizar tu camino.
         </p>
+
+        <input
+          type="text"
+          id="nameInput"
+          class="text-input"
+          placeholder="Tu nombre"
+          maxlength="30"
+        >
+
+        <button class="primary-btn full-btn" onclick="nextOnboarding(2)">
+          CONTINUAR
+        </button>
+
+      </div>
+
+
+      <div class="onboarding-step" id="onboarding2">
+
+        <span class="eyebrow">PASO 2 DE 3</span>
+
+        <h2>¿Qué querés mejorar primero?</h2>
+
+        <p>
+          No necesitás hacerlo todo al mismo tiempo.
+        </p>
+
+
+        <div class="choice-grid">
+
+          <button onclick="selectGoal(this,'Cuerpo')">💪 Cuerpo</button>
+          <button onclick="selectGoal(this,'Mente')">🧠 Mente</button>
+          <button onclick="selectGoal(this,'Disciplina')">🔥 Disciplina</button>
+          <button onclick="selectGoal(this,'Finanzas')">💰 Finanzas</button>
+          <button onclick="selectGoal(this,'Negocios')">💼 Negocios</button>
+          <button onclick="selectGoal(this,'Relaciones')">❤️ Relaciones</button>
+          <button onclick="selectGoal(this,'Propósito')">🎯 Propósito</button>
+          <button onclick="selectGoal(this,'Imagen')">👔 Imagen</button>
 
         </div>
 
-        <button
 
-        class="complete"
-
-        onclick="completarDia(${i})">
-
-        Completar
-
+        <button class="primary-btn full-btn" onclick="nextOnboarding(3)">
+          CONTINUAR
         </button>
 
-        `;
+      </div>
 
 
-        container.appendChild(
-            div
-        );
+      <div class="onboarding-step" id="onboarding3">
 
-    }
+        <span class="eyebrow">PASO 3 DE 3</span>
 
-}
+        <h2>¿Cuánto tiempo tenés?</h2>
 
+        <p>
+          Elegí algo que puedas mantener.
+        </p>
 
-function completarDia(dia){
 
-    if(
-        !progreso.includes(dia)
-    ){
+        <div class="choice-grid">
 
-        progreso.push(dia);
+          <button onclick="selectTime(this,'10 minutos')">
+            ⚡ 10 minutos
+          </button>
 
-        progreso.sort(
-            function(a,b){
+          <button onclick="selectTime(this,'30 minutos')">
+            🔥 30 minutos
+          </button>
 
-                return a-b;
+          <button onclick="selectTime(this,'1 hora')">
+            💪 1 hora
+          </button>
 
-            }
-        );
+          <button onclick="selectTime(this,'Más de 1 hora')">
+            🚀 Más de 1 hora
+          </button>
 
+        </div>
 
-        localStorage.setItem(
 
-            "disciplina",
+        <button class="primary-btn full-btn" onclick="finishOnboarding()">
+          CREAR MI CAMINO
+        </button>
 
-            JSON.stringify(
-                progreso
-            )
+      </div>
 
-        );
+    </div>
 
-    }
+  </div>
 
 
-    actualizarProgreso();
+  <!-- =========================
+       MODAL ÁREA
+  ========================== -->
 
-}
+  <div class="modal" id="areaModal">
 
+    <div class="modal-box wide">
 
-function actualizarProgreso(){
+      <button class="close-btn" onclick="closeModal('areaModal')">
+        ×
+      </button>
 
-    const dias=
-    progreso.length;
+      <span class="eyebrow" id="areaEyebrow">ÁREA</span>
 
+      <h2 id="areaTitle">
+        Área
+      </h2>
 
-    document
-    .getElementById(
-        "progressText"
-    )
-    .innerText=
+      <p id="areaIntro">
+        Descripción.
+      </p>
 
-    dias+" / 7";
 
+      <div class="content-blocks" id="areaContent">
+      </div>
 
-    document
-    .getElementById(
-        "progressFill"
-    )
-    .style.width=
+    </div>
 
-    (dias/7*100)+"%";
+  </div>
 
 
-    for(
-        let i=1;
-        i<=7;
-        i++
-    ){
+  <!-- =========================
+       MODAL DISCIPLINA
+  ========================== -->
 
-        const day=
-        document.getElementById(
-            "day"+i
-        );
+  <div class="modal" id="disciplineModal">
 
-        if(!day)
-        continue;
+    <div class="modal-box wide">
 
+      <button class="close-btn" onclick="closeModal('disciplineModal')">
+        ×
+      </button>
 
-        const button=
-        day.querySelector(
-            "button"
-        );
+      <span class="eyebrow">DESAFÍO</span>
 
+      <h2>🔥 7 Días de Disciplina</h2>
 
-        if(
-            progreso.includes(i)
-        ){
+      <p>
+        Pequeñas acciones. Repetidas.
+        Convertidas en identidad.
+      </p>
 
-            day.classList.add(
-                "completed"
-            );
 
-            button.innerText=
-            "✓ Completado";
+      <div class="progress-info">
+        <span>Progreso</span>
+        <strong id="disciplineProgressText">0 / 7</strong>
+      </div>
 
-        }else{
+      <div class="progress-track">
+        <div class="progress-fill" id="disciplineProgress"></div>
+      </div>
 
-            day.classList.remove(
-                "completed"
-            );
 
-            button.innerText=
-            "Completar";
+      <div id="disciplineDays"></div>
 
-        }
 
-    }
+      <div class="success-box" id="disciplineSuccess">
+        <div class="success-icon">🏆</div>
+        <h3>Desafío completado</h3>
+        <p>
+          Completaste los 7 días.
+          Tu próxima etapa empieza ahora.
+        </p>
+      </div>
 
 
-    if(dias===7){
+      <button class="secondary-btn full-btn" onclick="resetDiscipline()">
+        Reiniciar desafío
+      </button>
 
-        document
-        .getElementById(
-            "successBox"
-        )
-        .classList.add(
-            "show"
-        );
+    </div>
 
-    }else{
+  </div>
 
-        document
-        .getElementById(
-            "successBox"
-        )
-        .classList.remove(
-            "show"
-        );
 
-    }
+  <!-- =========================
+       MODAL LIBRO
+  ========================== -->
 
+  <div class="modal" id="bookModal">
 
-    actualizarEstadisticas();
+    <div class="modal-box">
 
-}
+      <button class="close-btn" onclick="closeModal('bookModal')">
+        ×
+      </button>
 
+      <span class="eyebrow" id="bookCategory">
+        LIBRO
+      </span>
 
-function reiniciarDesafio(){
+      <h2 id="bookTitle">
+        Libro
+      </h2>
 
-    if(
-        !confirm(
-            "¿Querés reiniciar el desafío?"
-        )
-    ){
+      <p class="book-author-modal" id="bookAuthor">
+        Autor
+      </p>
 
-        return;
+      <div id="bookDescription"></div>
 
-    }
+      <button class="primary-btn full-btn" id="bookActionButton">
+        MARCAR COMO LEÍDO
+      </button>
 
+    </div>
 
-    progreso=[];
+  </div>
 
 
-    localStorage.removeItem(
-        "disciplina"
-    );
+  <!-- =========================
+       MODAL MISIÓN
+  ========================== -->
 
+  <div class="modal" id="missionModal">
 
-    actualizarProgreso();
+    <div class="modal-box">
 
-}
+      <button class="close-btn" onclick="closeModal('missionModal')">
+        ×
+      </button>
 
+      <span class="eyebrow">
+        MISIÓN
+      </span>
 
-/* =========================
-   ESTADISTICAS
-========================= */
+      <h2 id="modalMissionTitle">
+        Misión
+      </h2>
 
-function actualizarEstadisticas(){
+      <p id="modalMissionText">
+        ...
+      </p>
 
-    const dias=
-    progreso.length;
+      <button class="primary-btn full-btn" onclick="completeTodayMission(true)">
+        COMPLETAR +100 XP
+      </button>
 
+    </div>
 
-    const puntos=
-    dias*100;
+  </div>
 
 
-    const nivel=
-    Math.floor(
-        puntos/300
-    )+1;
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
+  <footer>
 
-    document
-    .getElementById(
-        "statDias"
-    )
-    .innerText=
-    dias;
+    <div class="container footer-content">
 
+      <strong>
+        LA VIDA QUE QUIERO
+      </strong>
 
-    document
-    .getElementById(
-        "statPuntos"
-    )
-    .innerText=
-    puntos;
+      <p>
+        Creá tu camino.
+        Construí tu libertad.
+      </p>
 
+      <small>
+        © 2026 LVQ
+      </small>
 
-    document
-    .getElementById(
-        "statNivel"
-    )
-    .innerText=
-    nivel;
+    </div>
 
-}
+  </footer>
 
 
-/* =========================
-   AREAS
-========================= */
-
-function mostrarArea(area){
-
-    document
-    .getElementById(
-        "areaTitle"
-    )
-    .innerText=
-    area;
-
-
-    document
-    .getElementById(
-        "areaDescription"
-    )
-    .innerText=
-
-    "Estamos preparando desafíos " +
-
-    "y herramientas para ayudarte " +
-
-    "a mejorar tu área de " +
-
-    area +
-
-    ".";
-
-
-    document
-    .getElementById(
-        "areaModal"
-    )
-    .classList.add(
-        "active"
-    );
-
-}
-
-
-/* =========================
-   LIBROS
-========================= */
-
-const libros={
-
-
-habitos:{
-
-titulo:
-"📘 Hábitos Atómicos",
-
-texto:
-
-"<strong>Autor:</strong> James Clear<br><br>"+
-
-"<strong>Área:</strong> Hábitos y disciplina<br><br>"+
-
-"<strong>Por qué lo recomendamos:</strong><br>"+
-
-"Es un excelente punto de partida para aprender cómo pequeños cambios sostenidos pueden transformar tus resultados.<br><br>"+
-
-"<strong>Ideal para:</strong> Personas que quieren construir buenos hábitos y eliminar malos hábitos."
-
-},
-
-
-dinero:{
-
-titulo:
-"💰 La Psicología del Dinero",
-
-texto:
-
-"<strong>Autor:</strong> Morgan Housel<br><br>"+
-
-"<strong>Área:</strong> Finanzas<br><br>"+
-
-"<strong>Por qué lo recomendamos:</strong><br>"+
-
-"Ayuda a entender que las decisiones financieras dependen tanto del comportamiento como de los conocimientos técnicos.<br><br>"+
-
-"<strong>Ideal para:</strong> Personas que quieren mejorar su relación con el dinero."
-
-},
-
-
-babilonia:{
-
-titulo:
-"💵 El Hombre Más Rico de Babilonia",
-
-texto:
-
-"<strong>Autor:</strong> George S. Clason<br><br>"+
-
-"<strong>Área:</strong> Finanzas personales<br><br>"+
-
-"<strong>Por qué lo recomendamos:</strong><br>"+
-
-"Presenta principios sencillos sobre ahorro, administración del dinero y construcción de patrimonio.<br><br>"+
-
-"<strong>Ideal para:</strong> Principiantes en educación financiera."
-
-},
-
-
-piense:{
-
-titulo:
-"🧠 Piense y Hágase Rico",
-
-texto:
-
-"<strong>Autor:</strong> Napoleon Hill<br><br>"+
-
-"<strong>Área:</strong> Mentalidad<br><br>"+
-
-"<strong>Por qué lo recomendamos:</strong><br>"+
-
-"Un clásico sobre objetivos, determinación y mentalidad orientada a resultados.<br><br>"+
-
-"<strong>Ideal para:</strong> Personas que buscan trabajar su mentalidad y objetivos."
-
-},
-
-
-7habitos:{
-
-titulo:
-"🎯 Los 7 hábitos de la gente altamente efectiva",
-
-texto:
-
-"<strong>Autor:</strong> Stephen R. Covey<br><br>"+
-
-"<strong>Área:</strong> Desarrollo personal<br><br>"+
-
-"<strong>Por qué lo recomendamos:</strong><br>"+
-
-"Propone principios para mejorar la efectividad personal, las prioridades y las relaciones.<br><br>"+
-
-"<strong>Ideal para:</strong> Personas que quieren organizar mejor su vida."
-
-},
-
-
-carnegie:{
-
-titulo:
-"❤️ Cómo ganar amigos e influir sobre las personas",
-
-texto:
-
-"<strong>Autor:</strong> Dale Carnegie<br><br>"+
-
-"<strong>Área:</strong> Relaciones y comunicación<br><br>"+
-
-"<strong>Por qué lo recomendamos:</strong><br>"+
-
-"Un clásico para trabajar habilidades sociales, comunicación y relaciones interpersonales.<br><br>"+
-
-"<strong>Ideal para:</strong> Personas que quieren mejorar su comunicación y vínculos."
-
-}
-
-};
-
-
-function abrirLibro(id){
-
-    const libro=
-    libros[id];
-
-
-    document
-    .getElementById(
-        "bookTitle"
-    )
-    .innerText=
-    libro.titulo;
-
-
-    document
-    .getElementById(
-        "bookInfo"
-    )
-    .innerHTML=
-    libro.texto;
-
-
-    document
-    .getElementById(
-        "bookModal"
-    )
-    .classList.add(
-        "active"
-    );
-
-}
-
-
-/* =========================
-   CERRAR MODALES
-========================= */
-
-document
-.querySelectorAll(".modal")
-.forEach(
-    function(modal){
-
-        modal.addEventListener(
-            "click",
-            function(event){
-
-                if(
-                    event.target===modal
-                ){
-
-                    modal.classList.remove(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================
-   INICIALIZAR
-========================= */
-
-actualizarEstadisticas();
-
-</script>
-
+  <script src="app.js"></script>
 
 </body>
-
 </html>
